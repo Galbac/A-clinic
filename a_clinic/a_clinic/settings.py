@@ -54,8 +54,8 @@ ROOT_URLCONF = 'a_clinic.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-         'DIRS': [BASE_DIR /'clinic' / 'templates',
-                  BASE_DIR / 'a_clinic' / 'templates',],
+        'DIRS': [BASE_DIR / 'clinic' / 'templates',
+                 BASE_DIR / 'a_clinic' / 'templates', ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -126,3 +126,5 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.AllowAny',
     ]
 }
+
+DATA_UPLOAD_MAX_MEMORY_SIZE = 104857600
