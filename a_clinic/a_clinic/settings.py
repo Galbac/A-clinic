@@ -54,7 +54,8 @@ ROOT_URLCONF = 'a_clinic.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+         'DIRS': [BASE_DIR /'clinic' / 'templates',
+                  BASE_DIR / 'a_clinic' / 'templates',],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
