@@ -1,7 +1,8 @@
+from django.shortcuts import render
 from rest_framework import viewsets
 
 from .models import Doctor, Service, Appointment, Review
-from .serializers import DoctorSerializer, ServiceSerializer, AppointmentSerializer, ReviewSerializer
+from .serializers import ReviewSerializer, AppointmentSerializer, ServiceSerializer, DoctorSerializer
 
 
 # Create your views here.
@@ -24,3 +25,6 @@ class AppointmentViewSet(viewsets.ModelViewSet):
 class ReviewViewSet(viewsets.ModelViewSet):
     queryset = Review.objects.all()
     serializer_class = ReviewSerializer
+
+def home(request):
+    return render(request, 'clinic/index.html')
