@@ -35,6 +35,11 @@ class Service(models.Model):
         return self.name
 
 
+class FAQ(models.Model):
+    question = models.CharField(verbose_name='Вопрос')
+    answer = models.CharField(verbose_name='Ответ')
+
+
 class Appointment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Пользователь')
     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, verbose_name='Врач')
@@ -63,3 +68,10 @@ class Review(models.Model):
 
     def __str__(self):
         return f"Отзыв от {self.user.username} - {self.rating}/5"
+
+
+class Departments(models.Model):
+    name = models.CharField(verbose_name='Название отделения')
+    bio = models.CharField(verbose_name="Краткое описание")
+    image = models.ImageField(verbose_name="Фото", upload_to='departments/', blank=True, null=True)
+    description = models.CharField(verbose_name="Описание")

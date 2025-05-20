@@ -1,116 +1,46 @@
-<!-- Departments Section -->
 {% load static %}
 <section id="departments" class="departments section">
-
-    <!-- Заголовок раздела -->
     <div class="container section-title" data-aos="fade-up">
         <h2>Отделы</h2>
         <p>Необходимость этого действия вызвана некоторыми обстоятельствами, которые требуют внимательности и
             сосредоточенности</p>
-    </div><!-- Конец заголовка раздела -->
+    </div>
 
     <div class="container" data-aos="fade-up" data-aos-delay="100">
-
         <div class="row">
             <div class="col-lg-3">
                 <ul class="nav nav-tabs flex-column">
+                    {% for department in departments %}
                     <li class="nav-item">
-                        <a class="nav-link active show" data-bs-toggle="tab"
-                           href="#departments-tab-1">Кардиология</a>
+                        <a class="nav-link {% if forloop.first %}active show{% endif %}" data-bs-toggle="tab"
+                           href="#department-tab-{{ department.id }}">
+                            {{ department.name }}
+                        </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="tab" href="#departments-tab-2">Неврология</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="tab" href="#departments-tab-3">Гепатология</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="tab" href="#departments-tab-4">Педиатрия</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="tab" href="#departments-tab-5">Офтальмология</a>
-                    </li>
+                    {% endfor %}
                 </ul>
             </div>
+
             <div class="col-lg-9 mt-4 mt-lg-0">
                 <div class="tab-content">
-                    <div class="tab-pane active show" id="departments-tab-1">
+                    {% for department in departments %}
+                    <div class="tab-pane {% if forloop.first %}active show{% endif %}"
+                         id="department-tab-{{ department.id }}">
                         <div class="row">
                             <div class="col-lg-8 details order-2 order-lg-1">
-                                <h3>Кардиология</h3>
-                                <p class="fst-italic">Слушая заботливо, мы заботимся о вашем сердце</p>
-                                <p>Мы предлагаем широкий спектр услуг в области кардиологии, включая диагностику и
-                                    лечение заболеваний сердца и сосудов. Наши специалисты используют самые современные
-                                    технологии для обеспечения вашего здоровья и благополучия.</p>
+                                <h3>{{ department.name }}</h3>
+                                <p class="fst-italic">{{ department.bio }}</p>
+                                <p>{{ department.description }}</p>
                             </div>
                             <div class="col-lg-4 text-center order-1 order-lg-2">
-                                <img src="{% static 'img/departments-1.jpg' %}" alt="Кардиология" class="img-fluid">
+                                <img src="{{ department.photo.url }}" alt="{{ department.name }}" class="img-fluid">
+
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane" id="departments-tab-2">
-                        <div class="row">
-                            <div class="col-lg-8 details order-2 order-lg-1">
-                                <h3>Неврология</h3>
-                                <p class="fst-italic">Забота о вашем мозге и нервной системе</p>
-                                <p>Неврология - это область медицины, которая занимается диагностикой и лечением
-                                    заболеваний центральной и периферической нервной системы. Наши врачи помогут вам при
-                                    различных неврологических расстройствах, таких как головные боли, бессонница,
-                                    нарушения памяти и многое другое.</p>
-                            </div>
-                            <div class="col-lg-4 text-center order-1 order-lg-2">
-                                <img src="{% static 'img/departments-2.jpg' %}" alt="Неврология" class="img-fluid">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane" id="departments-tab-3">
-                        <div class="row">
-                            <div class="col-lg-8 details order-2 order-lg-1">
-                                <h3>Гепатология</h3>
-                                <p class="fst-italic">Забота о здоровье вашей печени</p>
-                                <p>Гепатология занимается диагностикой, лечением и профилактикой заболеваний печени. Мы
-                                    предлагаем высококачественное лечение заболеваний, таких как гепатит, цирроз, жирная
-                                    печень и другие. Наши специалисты помогут вам в восстановлении здоровья печени и
-                                    повышении качества жизни.</p>
-                            </div>
-                            <div class="col-lg-4 text-center order-1 order-lg-2">
-                                <img src="{% static 'img/departments-3.jpg' %}" alt="Гепатология" class="img-fluid">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane" id="departments-tab-4">
-                        <div class="row">
-                            <div class="col-lg-8 details order-2 order-lg-1">
-                                <h3>Педиатрия</h3>
-                                <p class="fst-italic">Забота о здоровье ваших детей</p>
-                                <p>Наши педиатры занимаются лечением и профилактикой заболеваний у детей всех возрастов.
-                                    Мы обеспечиваем комплексную медицинскую помощь, начиная с новорожденных и до
-                                    подростков. Здоровье вашего ребенка - наша главная приоритет.</p>
-                            </div>
-                            <div class="col-lg-4 text-center order-1 order-lg-2">
-                                <img src="{% static 'img/departments-4.jpg' %}" alt="Педиатрия" class="img-fluid">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane" id="departments-tab-5">
-                        <div class="row">
-                            <div class="col-lg-8 details order-2 order-lg-1">
-                                <h3>Офтальмология</h3>
-                                <p class="fst-italic">Забота о вашем зрении</p>
-                                <p>Офтальмология - это раздел медицины, который занимается диагностикой и лечением
-                                    заболеваний глаз. Мы предлагаем широкий спектр услуг, включая коррекцию зрения,
-                                    лечение катаракты, глаукомы и других заболеваний глаз. Наши специалисты помогут вам
-                                    сохранить и улучшить зрение.</p>
-                            </div>
-                            <div class="col-lg-4 text-center order-1 order-lg-2">
-                                <img src="{% static 'img/departments-5.jpg' %}" alt="Офтальмология" class="img-fluid">
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
-
     </div>
-
-</section><!-- /Departments Section -->
+</section>

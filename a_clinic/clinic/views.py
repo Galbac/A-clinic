@@ -1,9 +1,10 @@
 from itertools import zip_longest
 
+from django.shortcuts import render
 from django.views.generic import TemplateView
 from rest_framework import viewsets
 
-from .models import Doctor, Service, Appointment, Review
+from .models import Doctor, Service, Appointment, Review, FAQ, Departments
 from .serializers import DoctorSerializer, ServiceSerializer, AppointmentSerializer, ReviewSerializer
 
 
@@ -35,7 +36,16 @@ class HomeView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         doctors = Doctor.objects.filter(available=True)
+        faq = FAQ.objects.all()
+        departments = Departments.objects.all()
         # Группируем по 4, если не кратно 4 — дополняем None
         grouped_doctors = list(zip_longest(*[iter(doctors)] * 4, fillvalue=None))
         context['grouped_doctors'] = grouped_doctors
+        context['faq'] = faq
+        context['departments'] = departments
         return context
+
+
+def departments(request):
+    departments = Departments.objects.all()
+    return render(request, "clinic/departments.html", context= {"departments": departments})

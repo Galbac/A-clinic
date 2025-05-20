@@ -13,4 +13,5 @@ router.register(r'reviews', ReviewViewSet)
 urlpatterns = [
     path('api/', include(router.urls)),
     path('', views.HomeView.as_view(), name='home'),
+    path('departments/', views.departments, name='departments'),
 ]
