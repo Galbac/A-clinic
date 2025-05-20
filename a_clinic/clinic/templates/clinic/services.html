@@ -10,84 +10,19 @@
     <div class="container">
 
         <div class="row gy-4">
-
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            {%for service in services%}
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="{{service.id|add:'1'}}00">
                 <div class="service-item position-relative">
                     <div class="icon">
-                        <i class="fas fa-heartbeat"></i>
+                        <i class="{{service.icon}}"></i>
                     </div>
                     <a href="#" class="stretched-link">
-                        <h3>Кардиология</h3>
+                        <h3>{{service.name}}</h3>
                     </a>
-                    <p>Полная диагностика и лечение сердечно-сосудистых заболеваний с использованием современного
-                        оборудования.</p>
+                    <p>{{service.description}}</p>
                 </div>
             </div><!-- Конец блока услуги -->
-
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                <div class="service-item position-relative">
-                    <div class="icon">
-                        <i class="fas fa-pills"></i>
-                    </div>
-                    <a href="#" class="stretched-link">
-                        <h3>Фармакотерапия</h3>
-                    </a>
-                    <p>Индивидуальный подбор медикаментозного лечения и контроль эффективности терапии.</p>
-                </div>
-            </div><!-- Конец блока услуги -->
-
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                <div class="service-item position-relative">
-                    <div class="icon">
-                        <i class="fas fa-hospital-user"></i>
-                    </div>
-                    <a href="#" class="stretched-link">
-                        <h3>Стационарное лечение</h3>
-                    </a>
-                    <p>Комфортные палаты и круглосуточное медицинское наблюдение для пациентов, требующих
-                        госпитализации.</p>
-                </div>
-            </div><!-- Конец блока услуги -->
-
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-                <div class="service-item position-relative">
-                    <div class="icon">
-                        <i class="fas fa-dna"></i>
-                    </div>
-                    <a href="#" class="stretched-link">
-                        <h3>Генетические исследования</h3>
-                    </a>
-                    <p>Современные методы генетической диагностики и персональные рекомендации на основе
-                        ДНК-анализа.</p>
-                    <a href="#" class="stretched-link"></a>
-                </div>
-            </div><!-- Конец блока услуги -->
-
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-                <div class="service-item position-relative">
-                    <div class="icon">
-                        <i class="fas fa-wheelchair"></i>
-                    </div>
-                    <a href="#" class="stretched-link">
-                        <h3>Реабилитация</h3>
-                    </a>
-                    <p>Комплексные программы восстановления после операций, травм и перенесенных заболеваний.</p>
-                    <a href="#" class="stretched-link"></a>
-                </div>
-            </div><!-- Конец блока услуги -->
-
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-                <div class="service-item position-relative">
-                    <div class="icon">
-                        <i class="fas fa-notes-medical"></i>
-                    </div>
-                    <a href="#" class="stretched-link">
-                        <h3>Диагностика</h3>
-                    </a>
-                    <p>Полный спектр лабораторных и инструментальных исследований для точной постановки диагноза.</p>
-                    <a href="#" class="stretched-link"></a>
-                </div>
-            </div><!-- Конец блока услуги -->
+            {%endfor%}
 
         </div>
 

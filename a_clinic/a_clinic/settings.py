@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'clinic.apps.ClinicConfig',
     'rest_framework',
     'django_extensions',
+    'captcha',
 ]
 
 MIDDLEWARE = [
@@ -130,3 +131,4 @@ REST_FRAMEWORK = {
 }
 
 DATA_UPLOAD_MAX_MEMORY_SIZE = 104857600
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

@@ -2,9 +2,9 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <title>Доктора</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <style>
         .swiper {
             padding: 30px 0;
@@ -150,7 +150,8 @@
 <section id="doctors" class="doctors section">
     <div class="container section-title">
         <h2>Доктора</h2>
-        <p>Необходимость этого действия вызвана некоторыми обстоятельствами, которые требуют внимательности и сосредоточенности</p>
+        <p>Необходимость этого действия вызвана некоторыми обстоятельствами, которые требуют внимательности и
+            сосредоточенности</p>
     </div>
     <div class="container">
         <div class="swiper doctors-slider">
@@ -162,9 +163,9 @@
                     <div class="team-member">
                         <div class="pic mb-3">
                             {% if doctor.photo %}
-                            <img src="{{ doctor.photo.url }}" alt="{{ doctor.name }}" />
+                            <img src="{{ doctor.photo.url }}" alt="{{ doctor.name }}"/>
                             {% else %}
-                            <img src="{% static 'img/default_user.png' %}" alt="Фото отсутствует" />
+                            <img src="{% static 'img/default_user.png' %}" alt="Фото отсутствует"/>
                             {% endif %}
                         </div>
                         <div class="member-info">
@@ -172,8 +173,17 @@
                             <span>{{ doctor.specialization|default:"&nbsp;" }}</span>
                             <p>{{ doctor.bio|default:"&nbsp;" }}</p>
                             <div class="social">
-                                {% if doctor.social_network_instagram %}
-                                <a href="{{ doctor.social_network_instagram }}"><i class="bi bi-instagram"></i></a>
+                                {% if doctor.social_links %}
+                                {% if doctor.social_links.telegram %}
+                                <a href="{{ doctor.social_links.telegram }}"><i class="bi bi-telegram"></i></a>
+                                {% endif %}
+                                {% if doctor.social_links.instagram %}
+                                <a href="{{ doctor.social_links.instagram }}"><i class="bi bi-instagram"></i></a>
+                                {% endif %}
+                                {% if doctor.social_links.whatsapp %}
+                                <a href="{{doctor.social_links.whatsapp}}"><i
+                                        class="bi bi-whatsapp"></i></a>
+                                {% endif %}
                                 {% endif %}
                             </div>
                         </div>

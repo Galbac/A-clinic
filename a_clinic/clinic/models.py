@@ -12,7 +12,7 @@ class Doctor(models.Model):
     photo = models.ImageField(upload_to='doctors/', verbose_name='Фото', null=True, blank=True)
     bio = models.TextField(verbose_name='Биография')
     available = models.BooleanField(default=True, verbose_name='Доступен')
-    social_network_instagram = models.CharField(blank=True, verbose_name='Инстаграм')
+    social_links = models.OneToOneField('SocialNetwork', on_delete=models.SET_NULL, null=True, blank=True)
 
     class Meta:
         verbose_name = 'Врач'
@@ -25,6 +25,7 @@ class Doctor(models.Model):
 class Service(models.Model):
     name = models.CharField(max_length=100, verbose_name='Название услуги')
     description = models.TextField(verbose_name='Описание')
+    icon = models.CharField(verbose_name='Иконка', null=True, blank=True)
     price = models.DecimalField(max_digits=8, decimal_places=2, verbose_name='Цена')
 
     class Meta:
@@ -39,20 +40,26 @@ class FAQ(models.Model):
     question = models.CharField(verbose_name='Вопрос')
     answer = models.CharField(verbose_name='Ответ')
 
+    class Meta:
+        verbose_name = "FAQ"
+        verbose_name_plural = 'FAQ'
+
 
 class Appointment(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Пользователь')
-    doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, verbose_name='Врач')
-    service = models.ForeignKey(Service, on_delete=models.CASCADE, verbose_name='Услуга')
-    date = models.DateTimeField(verbose_name='Дата и время')
-    comment = models.TextField(blank=True, verbose_name='Комментарий')
+    name = models.CharField(max_length=100, verbose_name='Имя пациента', null=True)
+    email = models.EmailField(verbose_name='E-mail', null=True)
+    phone = models.CharField(max_length=20, verbose_name='Номер телефона', null=True)
+    date = models.DateTimeField(verbose_name='Дата', null=True)
+    department = models.ForeignKey("Departments", on_delete=models.CASCADE, verbose_name='Отдел', null=True)
+    doctor = models.ForeignKey("Doctor", on_delete=models.CASCADE, verbose_name='Врач', null=True)
+    message = models.TextField(blank=True, verbose_name='Сообщение', null=True)
+
+    def __str__(self):
+        return f"{self.name} — {self.date.strftime('%Y-%m-%d %H:%M')}"
 
     class Meta:
         verbose_name = 'Запись на прием'
         verbose_name_plural = 'Записи на прием'
-
-    def __str__(self):
-        return f"{self.user.username} - {self.doctor.name} ({self.date})"
 
 
 class Review(models.Model):
@@ -81,4 +88,31 @@ class Departments(models.Model):
         verbose_name_plural = 'Отделы'
 
     def __str__(self):
-        return f'{self.name} ({self.bio}-{self.image} - {self.description})'
+        return f'{self.name} ({self.bio}-{self.photo} - {self.description})'
+
+
+class SocialNetwork(models.Model):
+    name = models.CharField(blank=True, null=True, verbose_name='Имя')
+    instagram = models.URLField(blank=True, null=True, verbose_name='Instagram')
+    whatsapp = models.URLField(blank=True, null=True, verbose_name='Whatsapp')
+    telegram = models.URLField(blank=True, null=True, verbose_name="Telegram")
+
+    class Meta:
+        verbose_name = 'Социальная сеть'
+        verbose_name_plural = 'Социальные сети'
+
+    def __str__(self):
+        return f"Соцсети: Instagram={self.instagram}, Telegram={self.telegram}, WhatsApp={self.whatsapp}"
+
+
+# class Menu(models.Model):
+# name = models.CharField(verbose_name='Название клиники')
+# number = models.CharField(verbose_name='Номер телефона')
+# email = models.EmailField(verbose_name="E-mail")
+# appointment = models.CharField(verbose_name='Записаться на прием')
+# social_links = models.OneToOneField('SocialNetwork', on_delete=models.SET_NULL, null=True, blank=True)
+
+
+class Title(models.Model):
+    name = models.CharField(verbose_name='Название заголовка')
+    description = models.CharField(verbose_name='Описание')

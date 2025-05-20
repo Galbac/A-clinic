@@ -1,0 +1,13 @@
+{% extends 'a_clinic/base.html' %}
+
+{% block content %}
+<section class="appointment section">
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Успешно!</h2>
+    <p>Ваша запись на прием была успешно отправлена. Мы свяжемся с вами в ближайшее время.</p>
+    <div class="text-center mt-4">
+      <a href="{% url 'home' %}" class="btn btn-primary">Вернуться к записи</a>
+    </div>
+  </div>
+</section>
+{% endblock %}
