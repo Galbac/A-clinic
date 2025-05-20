@@ -73,5 +73,12 @@ class Review(models.Model):
 class Departments(models.Model):
     name = models.CharField(verbose_name='Название отделения')
     bio = models.CharField(verbose_name="Краткое описание")
-    image = models.ImageField(verbose_name="Фото", upload_to='departments/', blank=True, null=True)
+    photo = models.ImageField(verbose_name="Фото", upload_to='departments/', blank=True, null=True)
     description = models.CharField(verbose_name="Описание")
+
+    class Meta:
+        verbose_name = 'Отдел'
+        verbose_name_plural = 'Отделы'
+
+    def __str__(self):
+        return f'{self.name} ({self.bio}-{self.image} - {self.description})'
