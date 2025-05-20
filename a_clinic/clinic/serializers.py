@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from clinic.models import Doctor, Service, Appointment, Review
+from .models import Doctor, Service, Appointment, Review
 
 
 class DoctorSerializer(serializers.ModelSerializer):

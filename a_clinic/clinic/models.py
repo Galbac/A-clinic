@@ -9,16 +9,17 @@ user = get_user_model()
 class Doctor(models.Model):
     name = models.CharField(max_length=100, verbose_name='Имя')
     specialization = models.CharField(max_length=100, verbose_name='Специализация')
-    photo = models.ImageField(upload_to='doctors/', verbose_name='Фото')
+    photo = models.ImageField(upload_to='doctors/', verbose_name='Фото', null=True, blank=True)
     bio = models.TextField(verbose_name='Биография')
     available = models.BooleanField(default=True, verbose_name='Доступен')
+    social_network_instagram = models.CharField(blank=True, verbose_name='Инстаграм')
 
     class Meta:
         verbose_name = 'Врач'
         verbose_name_plural = 'Врачи'
 
     def __str__(self):
-        return f"{self.name} ({self.specialization})"
+        return f"{self.name} ({self.specialization}, {self.available}, {self.photo})"
 
 
 class Service(models.Model):

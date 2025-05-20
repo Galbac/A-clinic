@@ -1,92 +1,216 @@
-<!-- Doctors Section -->
 {% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <title>Доктора</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        .swiper {
+            padding: 30px 0;
+        }
+
+        .swiper-slide {
+            display: flex;
+            flex-wrap: wrap;          /* перенос карточек */
+            gap: 30px;
+            justify-content: flex-start;
+            align-items: stretch;     /* выравнивание карточек по высоте */
+        }
+
+        .team-member {
+            background: #fff;
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+
+            flex: 1 1 calc(25% - 22.5px); /* 4 карточки в ряд с учетом gap */
+            max-width: calc(25% - 22.5px);
+            box-sizing: border-box;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+            transition: transform 0.3s ease;
+        }
+
+        .pic img {
+            border-radius: 12px;
+            width: 100%;
+            height: auto;
+        }
+
+        .member-info {
+            text-align: center;
+            margin-top: 10px;
+
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            flex-grow: 1; /* чтоб занять оставшееся место */
+        }
+
+        /* Ключевые стили для переноса текста */
+        .member-info h4,
+        .member-info span,
+        .member-info p {
+            white-space: normal;       /* разрешаем перенос строк */
+            word-wrap: break-word;     /* перенос длинных слов */
+            overflow-wrap: break-word; /* для поддержки в браузерах */
+            margin: 0 0 8px 0;
+        }
+
+        .member-info h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        .member-info span {
+            font-size: 0.95rem;
+            color: #6c757d;
+            line-height: 1.2;
+        }
+
+        .member-info p {
+            font-size: 0.85rem;
+            color: #555;
+            line-height: 1.4;
+            margin-bottom: 8px;
+        }
+
+        .social {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 40px;
+            margin-top: auto; /* прижать к низу */
+        }
+
+        .social a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            color: #007bff;
+            font-size: 1.2rem;
+            margin: 5px;
+            transition: color 0.3s;
+            height: 100%;
+            text-decoration: none;
+        }
+
+        .social a:hover {
+            color: #0056b3;
+        }
+
+        .social:empty::after {
+            content: "";
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            margin: 5px;
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: #007bff;
+        }
+
+        .swiper-pagination-bullet {
+            background: #007bff;
+            opacity: 0.5;
+        }
+
+        .swiper-pagination-bullet-active {
+            opacity: 1;
+        }
+
+        /* Адаптив */
+
+        @media (max-width: 991px) {
+            .team-member {
+                flex: 1 1 calc(50% - 15px);
+                max-width: calc(50% - 15px);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .team-member {
+                flex: 1 1 100%;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
 <section id="doctors" class="doctors section">
-
-    <!-- Заголовок раздела -->
-    <div class="container section-title" data-aos="fade-up">
+    <div class="container section-title">
         <h2>Доктора</h2>
-        <p>Необходимость этого действия вызвана некоторыми обстоятельствами, которые требуют внимательности и
-            сосредоточенности</p>
-    </div><!-- Конец заголовка раздела -->
-
-    <div class="container">
-
-        <div class="row gy-4">
-
-            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-                <div class="team-member d-flex align-items-start">
-                    <div class="pic"><img src="{% static 'img/doctors/doctors-1.jpg' %}" class="img-fluid" alt="">
-                    </div>
-                    <div class="member-info">
-                        <h4>Уолтер Уайт</h4>
-                        <span>Главный врач</span>
-                        <p>Объяснение проблем и решение вопросов, связанных с болезнями</p>
-                        <div class="social">
-                            <a href=""><i class="bi bi-twitter-x"></i></a>
-                            <a href=""><i class="bi bi-facebook"></i></a>
-                            <a href=""><i class="bi bi-instagram"></i></a>
-                            <a href=""> <i class="bi bi-linkedin"></i> </a>
-                        </div>
-                    </div>
-                </div>
-            </div><!-- Конец члена команды -->
-
-            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-                <div class="team-member d-flex align-items-start">
-                    <div class="pic"><img src="{% static 'img/doctors/doctors-2.jpg' %}" class="img-fluid" alt="">
-                    </div>
-                    <div class="member-info">
-                        <h4>Сара Джонсон</h4>
-                        <span>Анестезиолог</span>
-                        <p>Лечение заболеваний, связанных с анестезией и хирургическими вмешательствами</p>
-                        <div class="social">
-                            <a href=""><i class="bi bi-twitter-x"></i></a>
-                            <a href=""><i class="bi bi-facebook"></i></a>
-                            <a href=""><i class="bi bi-instagram"></i></a>
-                            <a href=""> <i class="bi bi-linkedin"></i> </a>
-                        </div>
-                    </div>
-                </div>
-            </div><!-- Конец члена команды -->
-
-            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
-                <div class="team-member d-flex align-items-start">
-                    <div class="pic"><img src="{% static 'img/doctors/doctors-3.jpg' %}" class="img-fluid" alt="">
-                    </div>
-                    <div class="member-info">
-                        <h4>Уильям Андерсон</h4>
-                        <span>Кардиология</span>
-                        <p>Лечение заболеваний сердца и сосудов, диагностика сердечно-сосудистых заболеваний</p>
-                        <div class="social">
-                            <a href=""><i class="bi bi-twitter-x"></i></a>
-                            <a href=""><i class="bi bi-facebook"></i></a>
-                            <a href=""><i class="bi bi-instagram"></i></a>
-                            <a href=""> <i class="bi bi-linkedin"></i> </a>
-                        </div>
-                    </div>
-                </div>
-            </div><!-- Конец члена команды -->
-
-            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
-                <div class="team-member d-flex align-items-start">
-                    <div class="pic"><img src="{% static 'img/doctors/doctors-4.jpg' %}" class="img-fluid" alt="">
-                    </div>
-                    <div class="member-info">
-                        <h4>Аманда Джепсон</h4>
-                        <span>Нейрохирург</span>
-                        <p>Хирургическое лечение заболеваний нервной системы и головного мозга</p>
-                        <div class="social">
-                            <a href=""><i class="bi bi-twitter-x"></i></a>
-                            <a href=""><i class="bi bi-facebook"></i></a>
-                            <a href=""><i class="bi bi-instagram"></i></a>
-                            <a href=""> <i class="bi bi-linkedin"></i> </a>
-                        </div>
-                    </div>
-                </div>
-            </div><!-- Конец члена команды -->
-
-        </div>
-
+        <p>Необходимость этого действия вызвана некоторыми обстоятельствами, которые требуют внимательности и сосредоточенности</p>
     </div>
+    <div class="container">
+        <div class="swiper doctors-slider">
+            <div class="swiper-wrapper">
+                {% for doctor_group in grouped_doctors %}
+                <div class="swiper-slide">
+                    {% for doctor in doctor_group %}
+                    {% if doctor %}
+                    <div class="team-member">
+                        <div class="pic mb-3">
+                            {% if doctor.photo %}
+                            <img src="{{ doctor.photo.url }}" alt="{{ doctor.name }}" />
+                            {% else %}
+                            <img src="{% static 'img/default_user.png' %}" alt="Фото отсутствует" />
+                            {% endif %}
+                        </div>
+                        <div class="member-info">
+                            <h4>{{ doctor.name|default:"&nbsp;" }}</h4>
+                            <span>{{ doctor.specialization|default:"&nbsp;" }}</span>
+                            <p>{{ doctor.bio|default:"&nbsp;" }}</p>
+                            <div class="social">
+                                {% if doctor.social_network_instagram %}
+                                <a href="{{ doctor.social_network_instagram }}"><i class="bi bi-instagram"></i></a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+                {% endfor %}
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+</section>
 
-</section><!-- /Doctors Section -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        new Swiper('.doctors-slider', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+        });
+    });
+</script>
+</body>
+</html>
