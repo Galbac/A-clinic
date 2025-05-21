@@ -1,13 +1,9 @@
-from itertools import zip_longest
-
-from django.shortcuts import redirect, render
-from django.views import View
-from django.views.generic import TemplateView, FormView
+import requests
+from django.views.generic import FormView
 from rest_framework import viewsets
 from rest_framework.reverse import reverse_lazy
 
-from .forms import AppointmentForm
-from .models import Doctor, Service, Appointment, Review, FAQ, Departments
+from .models import Doctor, Service, Appointment, Review
 from .serializers import DoctorSerializer, ServiceSerializer, AppointmentSerializer, ReviewSerializer
 
 
@@ -33,66 +29,64 @@ class ReviewViewSet(viewsets.ModelViewSet):
     serializer_class = ReviewSerializer
 
 
-from django.views.generic import TemplateView
 from .forms import AppointmentForm
 from .models import Doctor, FAQ, Departments, Service
-from itertools import zip_longest
 from django.core.mail import send_mail
-from django.conf import settings
 
-class HomeView(TemplateView):
+
+class HomeView(FormView):
     template_name = 'clinic/index.html'
+    form_class = AppointmentForm
+    success_url = reverse_lazy('appointment_success')
 
-    def get(self, request, *args, **kwargs):
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
         doctors = Doctor.objects.filter(available=True)
-        faq = FAQ.objects.all()
-        departments = Departments.objects.all()
-        services = Service.objects.all()
-        form = AppointmentForm()
+        context['faq'] = FAQ.objects.all()
+        context['departments'] = Departments.objects.all()
+        context['services'] = Service.objects.all()
+        context['grouped_doctors'] = list(zip(*[iter(doctors)] * 4, strict=False))
+        return context
 
-        return render(request, self.template_name, {
-            'form': form,
-            'faq': faq,
-            'departments': departments,
-            'services': services,
-            'grouped_doctors': list(zip(*[iter(doctors)] * 4, strict=False))
-        })
+    def form_valid(self, form):
+        appointment = form.save()
 
-    def post(self, request, *args, **kwargs):
-        form = AppointmentForm(request.POST)
-        doctors = Doctor.objects.filter(available=True)
-        faq = FAQ.objects.all()
-        departments = Departments.objects.all()
-        services = Service.objects.all()
+        # Отправка email
+        send_mail(
+            subject='Новая запись на прием',
+            message=(
+                f"Имя: {appointment.name}\n"
+                f"Email: {appointment.email}\n"
+                f"Телефон: {appointment.phone}\n"
+                f"Дата: {appointment.date}\n"
+                f"Врач: {appointment.doctor}\n"
+                f"Сообщение: {appointment.message}"
+            ),
+            from_email=None,
+            recipient_list=['zidan_2002@mail.ru'],  # Замени на свою почту
+            fail_silently=False,
+        )
 
-        if form.is_valid():
-            appointment = form.save()
+        # Отправка в Telegram
+        self.send_telegram_message(appointment)
 
-            # Отправка email
-            send_mail(
-                subject='Новая запись на прием',
-                message=f"Имя: {appointment.name}\n"
-                        f"Email: {appointment.email}\n"
-                        f"Телефон: {appointment.phone}\n"
-                        f"Дата: {appointment.date}\n"
-                        f"Врач: {appointment.doctor}\n"
-                        f"Сообщение: {appointment.message}",
-                from_email=None,
-                recipient_list=['your@mail.ru'],  # Замени на свою почту
-                fail_silently=False,
-            )
+        return super().form_valid(form)
 
-            return redirect('appointment_success')
+    def send_telegram_message(self, appointment):
+        BOT_TOKEN = '7561986373:AAHxKMyS5tR8-N-EDqsrp1Q_jEpQKTPfF60'  # Замени
+        CHAT_ID = '430326400'  # Замени
+        TEXT = (
+            f"📥 Новая запись на приём:\n\n"
+            f"👤 Имя: {appointment.name}\n"
+            f"📧 Email: {appointment.email}\n"
+            f"📞 Телефон: {appointment.phone}\n"
+            f"📅 Дата: {appointment.date}\n"
+            f"🩺 Врач: {appointment.doctor}\n"
+            f"💬 Сообщение: {appointment.message}"
+        )
 
-        # Если форма с ошибками (например, капча), возвращаем форму с ошибками
-        return render(request, self.template_name, {
-            'form': form,
-            'faq': faq,
-            'departments': departments,
-            'services': services,
-            'grouped_doctors': list(zip(*[iter(doctors)] * 4, strict=False))
-        })
-
+        url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
+        requests.post(url, data={'chat_id': CHAT_ID, 'text': TEXT})
 
 
 class AppointmentView(FormView):

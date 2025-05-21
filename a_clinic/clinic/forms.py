@@ -1,11 +1,13 @@
-from captcha.fields import CaptchaField
 from django import forms
+from django_recaptcha.fields import ReCaptchaField
+from django_recaptcha.widgets import ReCaptchaV2Checkbox
 
 from .models import Appointment
 
 
 class AppointmentForm(forms.ModelForm):
-    captcha = CaptchaField()
+    captcha = ReCaptchaField(widget=ReCaptchaV2Checkbox)
+
     class Meta:
         model = Appointment
         fields = ['name', 'email', 'phone', 'date', 'department', 'doctor', 'message', 'captcha']
@@ -16,5 +18,6 @@ class AppointmentForm(forms.ModelForm):
             'date': forms.DateTimeInput(attrs={'class': 'form-control', 'type': 'datetime-local'}),
             'department': forms.Select(attrs={'class': 'form-select'}),
             'doctor': forms.Select(attrs={'class': 'form-select'}),
-            'message': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Сообщение (необязательно)', 'rows': 5}),
+            'message': forms.Textarea(
+                attrs={'class': 'form-control', 'placeholder': 'Сообщение (необязательно)', 'rows': 5}),
         }

@@ -12,7 +12,7 @@ class Doctor(models.Model):
     photo = models.ImageField(upload_to='doctors/', verbose_name='Фото', null=True, blank=True)
     bio = models.TextField(verbose_name='Биография')
     available = models.BooleanField(default=True, verbose_name='Доступен')
-    social_links = models.OneToOneField('SocialNetwork', on_delete=models.SET_NULL, null=True, blank=True)
+    social_links = models.ForeignKey('SocialNetwork', on_delete=models.SET_NULL, null=True, blank=True)
 
     class Meta:
         verbose_name = 'Врач'

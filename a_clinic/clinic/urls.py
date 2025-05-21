@@ -16,5 +16,5 @@ urlpatterns = [
     path('', views.HomeView.as_view(), name='home'),
     path('appointment/success/', TemplateView.as_view(template_name='clinic/appointment_success.html'),
          name='appointment_success'),
-    path('captcha/', include('captcha.urls')),
+
 ]

@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'clinic.apps.ClinicConfig',
     'rest_framework',
     'django_extensions',
-    'captcha',
+    'django_recaptcha',
 ]
 
 MIDDLEWARE = [
@@ -120,7 +120,6 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
@@ -132,3 +131,10 @@ REST_FRAMEWORK = {
 
 DATA_UPLOAD_MAX_MEMORY_SIZE = 104857600
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+RECAPTCHA_PUBLIC_KEY = '6LcN20ErAAAAAK0VBW8llGK8EG4y4Zeifc0OT-mY'
+RECAPTCHA_PRIVATE_KEY = '6LcN20ErAAAAAKxXO59TXK0nFlYvsxPSMmWXHe-Y'
+
+# Рекомендуется для тестирования
+NOCAPTCHA = True  # для виджета checkbox reCAPTCHA v2
+
+RECAPTCHA_DOMAIN = 'www.recaptcha.net'

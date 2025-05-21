@@ -1,0 +1,107 @@
+[33mcommit de91f178b9fbe1ffd814bde3ddfb0837fcd964f8[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Galbac <zidan_2002@mail.ru>
+Date:   Tue May 20 16:59:47 2025 +0300
+
+    Слишком много разных изменений
+
+[33mcommit 08c9e7c37ba149a2d18e27a6d5457e33f6cdcbfe[m
+Merge: a58b15e 2b073c3
+Author: Galbac <97892289+Galbac@users.noreply.github.com>
+Date:   Tue May 20 11:03:25 2025 +0300
+
+    Merge pull request #6 from Galbac/fix-departments
+    
+    Обновил колонку в departments для корректного отображения фото
+
+[33mcommit 2b073c38aedc88a26ee5888da7cc8f266c7a2d4c[m[33m ([m[1;31morigin/fix-departments[m[33m, [m[1;32mfix-departments[m[33m)[m
+Author: Galbac <zidan_2002@mail.ru>
+Date:   Tue May 20 11:02:39 2025 +0300
+
+    Обновил колонку в departments для корректного отображения фото
+
+[33mcommit a58b15e155dccd00e9c8eef33471c605d0ed9b1c[m
+Author: Galbac <zidan_2002@mail.ru>
+Date:   Tue May 20 10:53:46 2025 +0300
+
+    Изменил шаблоны под Джанго
+
+[33mcommit 8e041705be9eaa8187d4e3056e127bf542ecd470[m
+Merge: 52a4da7 480446c
+Author: Galbac <97892289+Galbac@users.noreply.github.com>
+Date:   Tue May 20 08:40:56 2025 +0300
+
+    Merge pull request #5 from Galbac/update-logo-doctors
+    
+    Изменил doctor.html на джанго изменил лого, сделал динамические фото …
+
+[33mcommit 480446c032e7f7716602ccd5a97be59efa554209[m[33m ([m[1;31morigin/update-logo-doctors[m[33m, [m[1;32mupdate-logo-doctors[m[33m)[m
+Author: Galbac <zidan_2002@mail.ru>
+Date:   Tue May 20 08:38:00 2025 +0300
+
+    Изменил doctor.html на джанго изменил лого, сделал динамические фото медиа
+
+[33mcommit 52a4da71eb5748d93e6b41da7997929dd52f6113[m
+Merge: 592a7c4 8e7742b
+Author: Galbac <97892289+Galbac@users.noreply.github.com>
+Date:   Mon May 19 16:31:14 2025 +0300
+
+    Merge pull request #4 from Galbac/minor_change
+    
+    Отредактировал название клиники
+
+[33mcommit 8e7742b356bf3f0fa8cb9a979c9609110c7978d2[m[33m ([m[1;31morigin/minor_change[m[33m)[m
+Author: Galbac <zidan_2002@mail.ru>
+Date:   Mon May 19 16:39:50 2025 +0300
+
+    Отредактировал название клиники
+
+[33mcommit 592a7c472e586deadcd9b4224922dd12507d96f6[m
+Merge: 2f81da5 5ec7453
+Author: Galbac <97892289+Galbac@users.noreply.github.com>
+Date:   Mon May 19 16:00:06 2025 +0300
+
+    Merge pull request #3 from Galbac/translate-to-russian
+    
+    Перевел весь текст на русский
+
+[33mcommit 5ec7453d22cca9d72897e0055af3dcc50e46b5d9[m[33m ([m[1;31morigin/translate-to-russian[m[33m)[m
+Author: Galbac <zidan_2002@mail.ru>
+Date:   Mon May 19 15:59:19 2025 +0300
+
+    Перевел весь текст на русский
+
+[33mcommit 2f81da56cff879bfde0fe0ca0d10b0a574595fdf[m
+Merge: 47379cc 4481769
+Author: Galbac <97892289+Galbac@users.noreply.github.com>
+Date:   Mon May 19 14:07:12 2025 +0300
+
+    Merge pull request #2 from Galbac/bootstrap
+    
+    Подключил бустрап и расскидал файлы по отдельности
+
+[33mcommit 448176937cf17fe3f6450b40afe5646df4fbd310[m[33m ([m[1;31morigin/bootstrap[m[33m)[m
+Author: Galbac <zidan_2002@mail.ru>
+Date:   Mon May 19 14:14:53 2025 +0300
+
+    Подключил бустрап и расскидал файлы по отдельности
+
+[33mcommit 47379cc81892d70225a6d526801a6fd7688e5250[m
+Merge: b823544 6c054b2
+Author: Galbac <97892289+Galbac@users.noreply.github.com>
+Date:   Mon May 19 00:10:39 2025 +0300
+
+    Merge pull request #1 from Galbac/initial
+    
+    Добавил модели и АРI к ним
+
+[33mcommit 6c054b2a866fe79aed477f50dc726ce0c6cc8fe5[m[33m ([m[1;31morigin/initial[m[33m, [m[1;32minitial[m[33m)[m
+Author: Galbac <zidan_2002@mail.ru>
+Date:   Mon May 19 00:05:31 2025 +0300
+
+    Добавил модели и АРI к ним
+
+[33mcommit b8235443e7bd5ab9b3314b1e1b3181b0b9282e3d[m[33m ([m[1;32minitial_commit[m[33m)[m
+Author: Galbac <zidan_2002@mail.ru>
+Date:   Sun May 18 21:02:32 2025 +0300
+
+    Initial commit
