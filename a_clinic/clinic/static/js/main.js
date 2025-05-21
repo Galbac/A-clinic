@@ -1,5 +1,5 @@
 /**
- * Template Name: Medilab
+ * Template Name: A’CLINIC
  * Template URL: https://bootstrapmade.com/medilab-free-medical-bootstrap-theme/
  * Updated: Aug 07 2024 with Bootstrap v5.3.3
  * Author: BootstrapMade.com

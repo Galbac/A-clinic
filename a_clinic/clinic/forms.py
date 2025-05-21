@@ -1,4 +1,7 @@
+from datetime import datetime
+
 from django import forms
+from django.utils.timezone import is_naive, make_aware, now
 from django_recaptcha.fields import ReCaptchaField
 from django_recaptcha.widgets import ReCaptchaV2Checkbox
 
@@ -6,7 +9,8 @@ from .models import Appointment
 
 
 class AppointmentForm(forms.ModelForm):
-    captcha = ReCaptchaField(widget=ReCaptchaV2Checkbox)
+    captcha = ReCaptchaField(widget=ReCaptchaV2Checkbox, required=True,
+                             error_messages={'required': 'Пожалуйста, подтвердите, что вы не робот.'})
 
     class Meta:
         model = Appointment
@@ -21,3 +25,31 @@ class AppointmentForm(forms.ModelForm):
             'message': forms.Textarea(
                 attrs={'class': 'form-control', 'placeholder': 'Сообщение (необязательно)', 'rows': 5}),
         }
+
+    def clean_phone(self):
+        phone = self.cleaned_data.get('phone')
+        if phone and not phone.isdigit():
+            raise forms.ValidationError('Телефон должен содержать только цифры.')
+        if phone and len(phone) < 10:
+            raise forms.ValidationError('Телефон слишком короткий.')
+        return phone
+
+    def clean_date(self):
+        date = self.cleaned_data['date']
+        if is_naive(date):
+            date = make_aware(date)
+        if date < now():
+            raise forms.ValidationError('Дата не может быть в прошлом.')
+        return date
+
+    def clean_captcha(self):
+        captcha_value = self.cleaned_data.get('captcha')
+        if not captcha_value:
+            raise forms.ValidationError("Пожалуйстаffff, подтвердите, что вы не робот.")
+        return captcha_value
+
+    def clean_name(self):
+        name = self.cleaned_data.get('name')
+        if name and len(name) < 2:
+            raise forms.ValidationError('Имя должно содержать не менее 2 символов.')
+        return name

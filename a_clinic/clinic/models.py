@@ -1,6 +1,8 @@
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import User
 from django.db import models
+from django.urls import reverse
+from django.utils.text import slugify
 
 # Create your models here.
 user = get_user_model()
@@ -8,18 +10,42 @@ user = get_user_model()
 
 class Doctor(models.Model):
     name = models.CharField(max_length=100, verbose_name='Имя')
+    slug = models.SlugField(unique=True, blank=True, verbose_name='URL')
     specialization = models.CharField(max_length=100, verbose_name='Специализация')
     photo = models.ImageField(upload_to='doctors/', verbose_name='Фото', null=True, blank=True)
     bio = models.TextField(verbose_name='Биография')
+    experience_years = models.PositiveIntegerField(default=0, verbose_name='Стаж (в годах)')
+    education = models.TextField(verbose_name='Образование', blank=True)
+    price_per_consultation = models.DecimalField(max_digits=8, decimal_places=2, verbose_name='Цена за приём',
+                                                 null=True, blank=True)
+    rating = models.FloatField(default=0, verbose_name='Рейтинг')
+    special_services = models.TextField(verbose_name='Специальные услуги', blank=True)
+    seo_description = models.CharField(max_length=160, verbose_name='SEO описание', blank=True)
+    accepts_online = models.BooleanField(default=False, verbose_name='Онлайн-консультации')
+    appointments_url = models.URLField(verbose_name='Ссылка на запись', null=True, blank=True)
+    video_presentation = models.URLField(verbose_name='Видео-презентация', null=True, blank=True)
+    working_days = models.CharField(max_length=100, verbose_name='Рабочие дни', blank=True)
+    working_hours = models.CharField(max_length=100, verbose_name='Рабочие часы', blank=True)
+    gender = models.CharField(max_length=10, choices=[('male', 'Мужской'), ('female', 'Женский')], verbose_name='Пол',
+                              blank=True)
     available = models.BooleanField(default=True, verbose_name='Доступен')
-    social_links = models.ForeignKey('SocialNetwork', on_delete=models.SET_NULL, null=True, blank=True)
+    social_links = models.ForeignKey('SocialNetwork', on_delete=models.SET_NULL, null=True, blank=True,
+                                     verbose_name='Соц. сети')
 
     class Meta:
         verbose_name = 'Врач'
         verbose_name_plural = 'Врачи'
 
     def __str__(self):
-        return f"{self.name} ({self.specialization}, {self.available}, {self.photo})"
+        return f"{self.name} ({self.specialization})"
+
+    def get_absolute_url(self):
+        return reverse('doctor_detail', kwargs={'slug': self.slug})
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
 
 
 class Service(models.Model):
@@ -88,7 +114,7 @@ class Departments(models.Model):
         verbose_name_plural = 'Отделы'
 
     def __str__(self):
-        return f'{self.name} ({self.bio}-{self.photo} - {self.description})'
+        return f'{self.name}'
 
 
 class SocialNetwork(models.Model):

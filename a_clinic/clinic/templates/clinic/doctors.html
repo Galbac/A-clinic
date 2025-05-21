@@ -5,13 +5,6 @@
     <meta charset="UTF-8"/>
     <title>Доктора</title>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Bootstrap Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-
     <style>
         .swiper {
             padding: 30px 0;
@@ -37,12 +30,11 @@
             flex-direction: column;
             align-items: center;
             margin-bottom: 20px;
-            cursor: pointer;
-            transition: transform 0.3s ease;
         }
 
         .team-member:hover {
             transform: translateY(-5px);
+            transition: transform 0.3s ease;
         }
 
         .pic img {
@@ -164,132 +156,71 @@
                 <div class="swiper-slide">
                     {% for doctor in doctor_group %}
                     {% if doctor %}
-                    <div class="team-member"
-                         data-name="{{ doctor.name }}"
-                         data-spec="{{ doctor.specialization }}"
-                         data-bio="{{ doctor.bio }}"
-                         data-photo="{% if doctor.photo %}{{ doctor.photo.url }}{% else %}{% static 'img/default_user.png' %}{% endif %}"
-                         data-telegram="{{ doctor.social_links.telegram|default:'' }}"
-                         data-instagram="{{ doctor.social_links.instagram|default:'' }}"
-                         data-whatsapp="{{ doctor.social_links.whatsapp|default:'' }}">
-                        <div class="pic mb-3">
-                            {% if doctor.photo %}
-                            <img src="{{ doctor.photo.url }}" alt="{{ doctor.name }}"/>
-                            {% else %}
-                            <img src="{% static 'img/default_user.png' %}" alt="Фото отсутствует"/>
-                            {% endif %}
-                        </div>
-                        <div class="member-info">
-                            <h4>{{ doctor.name|default:"&nbsp;" }}</h4>
-                            <span>{{ doctor.specialization|default:"&nbsp;" }}</span>
-                            <p>{{ doctor.bio|default:"&nbsp;" }}</p>
-                            <div class="social">
-                                {% if doctor.social_links %}
-                                {% if doctor.social_links.telegram %}
-                                <a href="{{ doctor.social_links.telegram }}"><i class="bi bi-telegram"></i></a>
-                                {% endif %}
-                                {% if doctor.social_links.instagram %}
-                                <a href="{{ doctor.social_links.instagram }}"><i class="bi bi-instagram"></i></a>
-                                {% endif %}
-                                {% if doctor.social_links.whatsapp %}
-                                <a href="{{ doctor.social_links.whatsapp }}"><i class="bi bi-whatsapp"></i></a>
-                                {% endif %}
+                    <div class="team-member">
+                        <a href="{%url 'doctor_detail' slug=doctor.slug%}">
+                            <div class="pic mb-3">
+                                {% if doctor.photo %}
+                                <img src="{{ doctor.photo.url }}" alt="{{ doctor.name }}"/>
+                                {% else %}
+                                <img src="{% static 'img/default_user.png' %}" alt="Фото отсутствует"/>
                                 {% endif %}
                             </div>
+
+                            <div class="member-info">
+                                <h4>{{ doctor.name|default:"&nbsp;" }}</h4>
+                                <span>{{ doctor.specialization|default:"&nbsp;" }}</span>
+                        </a>
+                        <div class="social">
+                            {% if doctor.social_links %}
+                            {% if doctor.social_links.telegram %}
+                            <a href="{{ doctor.social_links.telegram }}"><i class="bi bi-telegram"></i></a>
+                            {% endif %}
+                            {% if doctor.social_links.instagram %}
+                            <a href="{{ doctor.social_links.instagram }}"><i class="bi bi-instagram"></i></a>
+                            {% endif %}
+                            {% if doctor.social_links.whatsapp %}
+                            <a href="{{ doctor.social_links.whatsapp }}"><i class="bi bi-whatsapp"></i></a>
+                            {% endif %}
+                            {% endif %}
                         </div>
                     </div>
-                    {% endif %}
-                    {% endfor %}
+
                 </div>
+
+                {% endif %}
                 {% endfor %}
             </div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-pagination"></div>
+            {% endfor %}
         </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+    </div>
     </div>
 </section>
 
-<!-- Модальное окно для подробной информации -->
-<div class="modal fade" id="doctorModal" tabindex="-1" aria-labelledby="doctorModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="doctorModalLabel">Информация о докторе</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
-      </div>
-      <div class="modal-body">
-        <div class="d-flex flex-column flex-md-row gap-4">
-          <img id="modalDoctorPhoto" src="" alt="Фото доктора" class="rounded" style="width: 200px; height: auto;" />
-          <div>
-            <h4 id="modalDoctorName"></h4>
-            <p><strong>Специализация:</strong> <span id="modalDoctorSpec"></span></p>
-            <p id="modalDoctorBio"></p>
-            <div id="modalDoctorSocial" class="d-flex gap-3 fs-4"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
 <!-- Swiper JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-
-<!-- Bootstrap JS (для модального окна) -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-    // Инициализация Swiper
-    new Swiper('.doctors-slider', {
-        slidesPerView: 1,
-        spaceBetween: 30,
-        loop: true,
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-        autoplay: {
-            delay: 5000,
-            disableOnInteraction: false,
-        },
-    });
-
-    // Модальное окно
-    const doctorModal = new bootstrap.Modal(document.getElementById('doctorModal'));
-    const members = document.querySelectorAll('.team-member');
-
-    members.forEach(member => {
-        member.addEventListener('click', () => {
-            const name = member.dataset.name || '';
-            const spec = member.dataset.spec || '';
-            const bio = member.dataset.bio || '';
-            const photo = member.dataset.photo || '';
-            const telegram = member.dataset.telegram || '';
-            const instagram = member.dataset.instagram || '';
-            const whatsapp = member.dataset.whatsapp || '';
-
-            document.getElementById('modalDoctorName').textContent = name;
-            document.getElementById('modalDoctorSpec').textContent = spec;
-            document.getElementById('modalDoctorBio').textContent = bio;
-            document.getElementById('modalDoctorPhoto').src = photo;
-
-            const socialContainer = document.getElementById('modalDoctorSocial');
-            socialContainer.innerHTML = '';
-            if (telegram) socialContainer.innerHTML += `<a href="${telegram}" target="_blank" rel="noopener"><i class="bi bi-telegram"></i></a>`;
-            if (instagram) socialContainer.innerHTML += `<a href="${instagram}" target="_blank" rel="noopener"><i class="bi bi-instagram"></i></a>`;
-            if (whatsapp) socialContainer.innerHTML += `<a href="${whatsapp}" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i></a>`;
-
-            doctorModal.show();
+    document.addEventListener('DOMContentLoaded', function () {
+        new Swiper('.doctors-slider', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
         });
     });
-});
 </script>
-
 </body>
 </html>

@@ -1,0 +1,97 @@
+{% extends "a_clinic/base.html" %}
+{% load static %}
+
+{% block title %}{{ doctor.name }}{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="card border-0 shadow-lg">
+        <div class="row g-0">
+            <!-- Левая часть -->
+            <div class="col-lg-4 p-4 d-flex flex-column align-items-center">
+                <div class="w-100" style="max-width: 300px;">
+                    {% if doctor.photo %}
+                    <img src="{{ doctor.photo.url }}" alt="{{ doctor.name }}"
+                         class="img-fluid rounded"
+                         style="width: 100%; height: auto; max-height: 400px; object-fit: contain;">
+
+                    {% else %}
+                    <img src="{% static 'img/default_user.png' %}" alt="Фото отсутствует"
+                         class="img-fluid rounded"
+                         style="width: 100%; height: auto; max-height: 400px; object-fit: contain;">
+
+                    {% endif %}
+                </div>
+
+                {% if doctor.video_presentation %}
+                <a href="{{ doctor.video_presentation }}" class="btn btn-outline-secondary w-100 mt-3">
+                    🎥 Видео-презентация
+                </a>
+                {% endif %}
+
+                {% if doctor.appointments_url %}
+                <a href="{% url 'appointment' slug=doctor.slug %}" class="btn btn-success w-100 mt-2">
+                    🗓️ Записаться
+                </a>
+                {% endif %}
+            </div>
+
+            <!-- Правая часть -->
+            <div class="col-lg-8 p-4">
+                <h2 class="fw-bold">{{ doctor.name }}</h2>
+                <h5 class="text-primary">{{ doctor.specialization }}</h5>
+
+                <div class="row mt-3">
+                    <div class="col-sm-6">
+                        <p><strong>Стаж:</strong> {{ doctor.experience_years }} лет</p>
+                        <p><strong>Образование:</strong> {{ doctor.education|default:"—" }}</p>
+                        <p><strong>Рабочие дни:</strong><br>{{ doctor.working_days|linebreaks }}</p>
+                        <p><strong>Часы:</strong><br>{{ doctor.working_hours|linebreaks }}</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p><strong>Пол:</strong> {{ doctor.get_gender_display }}</p>
+                        <p><strong>Онлайн-консультации:</strong> {{ doctor.accepts_online|yesno:"Да,Нет" }}</p>
+                        <p><strong>Цена за приём:</strong> {{ doctor.price_per_consultation }} ₽</p>
+                        <p><strong>Рейтинг:</strong> {{ doctor.rating }}</p>
+                        <p><strong>SEO описание:</strong> {{ doctor.seo_description|default:"—" }}</p>
+                    </div>
+                </div>
+
+                {% if doctor.bio %}
+                <div class="mt-4">
+                    <h5>📘 Биография</h5>
+                    <p class="text-muted">{{ doctor.bio|linebreaks }}</p>
+                </div>
+                {% endif %}
+
+                {% if doctor.special_services %}
+                <div class="mt-4">
+                    <h5>💼 Специальные услуги</h5>
+                    <p class="text-muted">{{ doctor.special_services|linebreaks }}</p>
+                </div>
+                {% endif %}
+
+                {% if doctor.social_links %}
+                <div class="mt-4">
+                    <h5>📱 Социальные сети</h5>
+                    <div class="d-flex gap-3 fs-4">
+                        {% if doctor.social_links.telegram %}
+                        <a href="{{ doctor.social_links.telegram }}" class="text-primary" target="_blank"><i
+                                class="bi bi-telegram"></i></a>
+                        {% endif %}
+                        {% if doctor.social_links.instagram %}
+                        <a href="{{ doctor.social_links.instagram }}" class="text-danger" target="_blank"><i
+                                class="bi bi-instagram"></i></a>
+                        {% endif %}
+                        {% if doctor.social_links.whatsapp %}
+                        <a href="{{ doctor.social_links.whatsapp }}" class="text-success" target="_blank"><i
+                                class="bi bi-whatsapp"></i></a>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

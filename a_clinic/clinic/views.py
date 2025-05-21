@@ -1,5 +1,5 @@
 import requests
-from django.views.generic import FormView
+from django.views.generic import FormView, DetailView
 from rest_framework import viewsets
 from rest_framework.reverse import reverse_lazy
 
@@ -39,6 +39,10 @@ class HomeView(FormView):
     form_class = AppointmentForm
     success_url = reverse_lazy('appointment_success')
 
+    def form_invalid(self, form):
+        print("Форма невалиднаааа!", form.errors)  # Смотрим ошибки
+        return super().form_invalid(form)
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         doctors = Doctor.objects.filter(available=True)
@@ -49,18 +53,20 @@ class HomeView(FormView):
         return context
 
     def form_valid(self, form):
+        print("Форма валиднаааа!")
         appointment = form.save()
 
         # Отправка email
         send_mail(
             subject='Новая запись на прием',
             message=(
-                f"Имя: {appointment.name}\n"
-                f"Email: {appointment.email}\n"
-                f"Телефон: {appointment.phone}\n"
-                f"Дата: {appointment.date}\n"
-                f"Врач: {appointment.doctor}\n"
-                f"Сообщение: {appointment.message}"
+                f"📥 Новая запись на приём:\n\n"
+                f"👤 Имя: {appointment.name}\n"
+                f"📧 Email: {appointment.email}\n"
+                f"📞 Телефон: {appointment.phone}\n"
+                f"📅 Дата: {appointment.date}\n"
+                f"🩺 Врач: {appointment.doctor}\n"
+                f"💬 Сообщение: {appointment.message}"
             ),
             from_email=None,
             recipient_list=['zidan_2002@mail.ru'],  # Замени на свою почту
@@ -89,11 +95,24 @@ class HomeView(FormView):
         requests.post(url, data={'chat_id': CHAT_ID, 'text': TEXT})
 
 
+class DoctorDetailView(DetailView):
+    model = Doctor
+    template_name = 'clinic/doctor_detail.html'
+    context_object_name = 'doctor'
+    slug_field = 'slug'
+    slug_url_kwarg = 'slug'
+
+
 class AppointmentView(FormView):
-    template_name = 'clinic/appointment.html'
+    template_name = 'clinic/doctor_appointment.html'
     form_class = AppointmentForm
     success_url = reverse_lazy('appointment_success')
 
     def form_valid(self, form):
+        print("Форма валидна!")  # Проверяем, вызывается ли этот метод
         form.save()
         return super().form_valid(form)
+
+    def form_invalid(self, form):
+        print("Форма невалидна!", form.errors)  # Смотрим ошибки
+        return super().form_invalid(form)
