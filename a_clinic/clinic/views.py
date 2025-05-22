@@ -1,10 +1,10 @@
-import requests
-from django.views.generic import FormView, DetailView
+from django.shortcuts import render
+from django.views.generic import DetailView, CreateView
 from rest_framework import viewsets
-from rest_framework.reverse import reverse_lazy
 
-from .models import Doctor, Service, Appointment, Review
+from .models import Doctor, Service, Appointment, Review, Testimonial
 from .serializers import DoctorSerializer, ServiceSerializer, AppointmentSerializer, ReviewSerializer
+from .templates.clinic.utils import send_telegram_message
 
 
 # Create your views here.
@@ -29,19 +29,16 @@ class ReviewViewSet(viewsets.ModelViewSet):
     serializer_class = ReviewSerializer
 
 
-from .forms import AppointmentForm
+from django.views.generic.edit import FormView
+from django.urls import reverse_lazy
+from .forms import AppointmentForm, TestimonialForm
 from .models import Doctor, FAQ, Departments, Service
-from django.core.mail import send_mail
 
 
 class HomeView(FormView):
     template_name = 'clinic/index.html'
     form_class = AppointmentForm
     success_url = reverse_lazy('appointment_success')
-
-    def form_invalid(self, form):
-        print("Форма невалиднаааа!", form.errors)  # Смотрим ошибки
-        return super().form_invalid(form)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -50,49 +47,22 @@ class HomeView(FormView):
         context['departments'] = Departments.objects.all()
         context['services'] = Service.objects.all()
         context['grouped_doctors'] = list(zip(*[iter(doctors)] * 4, strict=False))
+        context['testimonials'] = Testimonial.objects.all()
         return context
 
+    def form_invalid(self, form):
+        print("Форма невалидна!", form.errors)
+        # Возвращаем форму с нужным контекстом (врачи, услуги и т.д.)
+        context = self.get_context_data(form=form)
+        return render(self.request, self.template_name, context)
+
     def form_valid(self, form):
-        print("Форма валиднаааа!")
+        print("Форма валидна!")
         appointment = form.save()
-
-        # Отправка email
-        send_mail(
-            subject='Новая запись на прием',
-            message=(
-                f"📥 Новая запись на приём:\n\n"
-                f"👤 Имя: {appointment.name}\n"
-                f"📧 Email: {appointment.email}\n"
-                f"📞 Телефон: {appointment.phone}\n"
-                f"📅 Дата: {appointment.date}\n"
-                f"🩺 Врач: {appointment.doctor}\n"
-                f"💬 Сообщение: {appointment.message}"
-            ),
-            from_email=None,
-            recipient_list=['zidan_2002@mail.ru'],  # Замени на свою почту
-            fail_silently=False,
-        )
-
         # Отправка в Telegram
-        self.send_telegram_message(appointment)
+        send_telegram_message(appointment)
 
         return super().form_valid(form)
-
-    def send_telegram_message(self, appointment):
-        BOT_TOKEN = '7561986373:AAHxKMyS5tR8-N-EDqsrp1Q_jEpQKTPfF60'  # Замени
-        CHAT_ID = '430326400'  # Замени
-        TEXT = (
-            f"📥 Новая запись на приём:\n\n"
-            f"👤 Имя: {appointment.name}\n"
-            f"📧 Email: {appointment.email}\n"
-            f"📞 Телефон: {appointment.phone}\n"
-            f"📅 Дата: {appointment.date}\n"
-            f"🩺 Врач: {appointment.doctor}\n"
-            f"💬 Сообщение: {appointment.message}"
-        )
-
-        url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
-        requests.post(url, data={'chat_id': CHAT_ID, 'text': TEXT})
 
 
 class DoctorDetailView(DetailView):
@@ -109,10 +79,18 @@ class AppointmentView(FormView):
     success_url = reverse_lazy('appointment_success')
 
     def form_valid(self, form):
-        print("Форма валидна!")  # Проверяем, вызывается ли этот метод
-        form.save()
+        print("Форма валидна!", form.cleaned_data)  # Проверяем, вызывается ли этот метод
+        appointment = form.save()
+        send_telegram_message(appointment)
         return super().form_valid(form)
 
     def form_invalid(self, form):
         print("Форма невалидна!", form.errors)  # Смотрим ошибки
         return super().form_invalid(form)
+
+
+class TestimonialCreateView(CreateView):
+    model = Testimonial
+    form_class = TestimonialForm
+    template_name = 'clinic/testimonial_form.html'
+    success_url = reverse_lazy('home')

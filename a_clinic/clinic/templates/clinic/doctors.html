@@ -168,7 +168,7 @@
 
                             <div class="member-info">
                                 <h4>{{ doctor.name|default:"&nbsp;" }}</h4>
-                                <span>{{ doctor.specialization|default:"&nbsp;" }}</span>
+                                <span>{{ doctor.department.name|default:"&nbsp;" }}</span>
                         </a>
                         <div class="social">
                             {% if doctor.social_links %}

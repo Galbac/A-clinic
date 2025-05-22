@@ -1,11 +1,9 @@
-from datetime import datetime
-
 from django import forms
 from django.utils.timezone import is_naive, make_aware, now
 from django_recaptcha.fields import ReCaptchaField
 from django_recaptcha.widgets import ReCaptchaV2Checkbox
 
-from .models import Appointment
+from .models import Appointment, Testimonial
 
 
 class AppointmentForm(forms.ModelForm):
@@ -14,7 +12,7 @@ class AppointmentForm(forms.ModelForm):
 
     class Meta:
         model = Appointment
-        fields = ['name', 'email', 'phone', 'date', 'department', 'doctor', 'message', 'captcha']
+        fields = ['name', 'email', 'phone', 'date', 'department', 'message', 'captcha']
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ваше имя'}),
             'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Ваш Email'}),
@@ -25,6 +23,10 @@ class AppointmentForm(forms.ModelForm):
             'message': forms.Textarea(
                 attrs={'class': 'form-control', 'placeholder': 'Сообщение (необязательно)', 'rows': 5}),
         }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['department'].empty_label = "Выберите отделение"
 
     def clean_phone(self):
         phone = self.cleaned_data.get('phone')
@@ -53,3 +55,12 @@ class AppointmentForm(forms.ModelForm):
         if name and len(name) < 2:
             raise forms.ValidationError('Имя должно содержать не менее 2 символов.')
         return name
+
+
+class TestimonialForm(forms.ModelForm):
+    class Meta:
+        model = Testimonial
+        fields = ['name', 'doctor', 'department', 'stars', 'text', 'image']
+        widgets = {
+            'text': forms.Textarea(attrs={'rows': 4}),
+        }

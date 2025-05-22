@@ -11,7 +11,7 @@ user = get_user_model()
 class Doctor(models.Model):
     name = models.CharField(max_length=100, verbose_name='Имя')
     slug = models.SlugField(unique=True, blank=True, verbose_name='URL')
-    specialization = models.CharField(max_length=100, verbose_name='Специализация')
+    department = models.ForeignKey('Departments', verbose_name='Специализация', on_delete=models.CASCADE)
     photo = models.ImageField(upload_to='doctors/', verbose_name='Фото', null=True, blank=True)
     bio = models.TextField(verbose_name='Биография')
     experience_years = models.PositiveIntegerField(default=0, verbose_name='Стаж (в годах)')
@@ -37,7 +37,7 @@ class Doctor(models.Model):
         verbose_name_plural = 'Врачи'
 
     def __str__(self):
-        return f"{self.name} ({self.specialization})"
+        return self.name
 
     def get_absolute_url(self):
         return reverse('doctor_detail', kwargs={'slug': self.slug})
@@ -142,3 +142,20 @@ class SocialNetwork(models.Model):
 class Title(models.Model):
     name = models.CharField(verbose_name='Название заголовка')
     description = models.CharField(verbose_name='Описание')
+
+
+class Testimonial(models.Model):
+    name = models.CharField("Имя пациента", max_length=100)
+    stars = models.PositiveSmallIntegerField("Оценка (звезды)", default=5)
+    text = models.TextField("Текст отзыва")
+    doctor = models.ForeignKey("Doctor", on_delete=models.SET_NULL, null=True, blank=True, verbose_name="Врач")
+    department = models.ForeignKey("Departments", on_delete=models.SET_NULL, null=True, blank=True,
+                                   verbose_name="Отделение")
+    image = models.ImageField(verbose_name="Фото пациента", upload_to='testimonials/', blank=True, null=True)
+
+    class Meta:
+        verbose_name = "Отзыв"
+        verbose_name_plural = "Отзывы"
+
+    def __str__(self):
+        return f"{self.name} - {self.stars}⭐"

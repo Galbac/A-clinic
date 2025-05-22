@@ -9,8 +9,7 @@
     </div>
 
     <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <form action="{% url 'home' %}" method="post" role="form" class="appointment-form"
-              onsubmit="return validateForm()">
+        <form action="" method="post" role="form" class="appointment-form">
             {% csrf_token %}
 
             <div class="row">
@@ -47,12 +46,6 @@
                     <div class="text-danger">{{ form.department.errors.0 }}</div>
                     {% endif %}
                 </div>
-                <div class="col-md-4 form-group mt-3">
-                    {{ form.doctor.label_tag }} {{ form.doctor }}
-                    {% if form.doctor.errors %}
-                    <div class="text-danger">{{ form.doctor.errors.0 }}</div>
-                    {% endif %}
-                </div>
             </div>
 
             <div class="form-group mt-3">
@@ -62,10 +55,10 @@
                 {% endif %}
             </div>
             <div class="form-group mt-3">
-                {{ form.captcha.label_tag }} {{ form.captcha }}
-                <div id="captcha-error" class="text-danger" style="display: none;">
-                    Пожалуйста, подтвердите, что вы не робот!
-                </div>
+                {{ form.captcha }}
+                {% if form.captcha.errors %}
+                <div class="text-danger">{{ form.captcha.errors.0 }}</div>
+                {% endif %}
             </div>
 
 
@@ -73,21 +66,9 @@
                 <button type="submit" class="btn btn-primary">Записаться на прием</button>
             </div>
         </form>
-        <script>
-            function validateForm() {
-                const captchaResponse = grecaptcha.getResponse();
-                const errorElement = document.getElementById("captcha-error");
 
-                if (captchaResponse.length === 0) {
-                    errorElement.style.display = "block";
-                    return false;
-                } else {
-                    errorElement.style.display = "none";
-                    return true;
-                }
-            }
-        </script>
     </div>
 </section>
+
 
 {%endblock%}

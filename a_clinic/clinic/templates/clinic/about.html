@@ -6,10 +6,94 @@
 
         <div class="row gy-4 gx-5">
 
-            <div class="col-lg-6 position-relative align-self-start" data-aos="fade-up" data-aos-delay="200">
-                <img src="{% static 'img/about.jpg' %}" class="img-fluid" alt="">
-                <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox pulsating-play-btn"></a>
-            </div>
+            <!-- Контейнер с изображением -->
+<div class="col-lg-6 position-relative align-self-start" data-aos="fade-up" data-aos-delay="200">
+    <img src="{% static 'img/about.jpg' %}" id="open-video"
+         class="img-fluid" alt="Instagram reel"
+         style="cursor: pointer; border-radius: 10px;">
+
+    <!-- Кнопка воспроизведения -->
+    <button id="play-button" style="
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(0, 0, 0, 0.6);
+        border: none;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+        color: white;
+        z-index: 10;
+        cursor: pointer;
+    ">▶</button>
+</div>
+
+<!-- Модальное окно -->
+<div id="video-modal" style="
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+">
+    <div style="position: relative; max-width: 90%; width: 400px;">
+        <!-- Кнопка закрытия -->
+        <span id="close-modal" style="
+            position: absolute;
+            top: -30px;
+            right: -10px;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        ">&times;</span>
+
+        <!-- Instagram iframe -->
+        <iframe id="reel-frame"
+                width="100%" height="500"
+                style="border: none; border-radius: 10px;"
+                allowfullscreen scrolling="no"
+                allowtransparency="true"
+                loading="lazy">
+        </iframe>
+    </div>
+</div>
+
+<!-- JS для управления модальным окном -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const openImage = document.getElementById("open-video");
+        const playButton = document.getElementById("play-button");
+        const modal = document.getElementById("video-modal");
+        const closeBtn = document.getElementById("close-modal");
+        const iframe = document.getElementById("reel-frame");
+
+        function openModal() {
+            iframe.src = "https://www.instagram.com/reel/C9C8rqftzu4/embed";
+            modal.style.display = "flex";
+        }
+
+        openImage.addEventListener("click", openModal);
+        playButton.addEventListener("click", openModal);
+
+        closeBtn.addEventListener("click", function () {
+            modal.style.display = "none";
+            iframe.src = ""; // Очищаем src, чтобы остановить видео
+        });
+
+        window.addEventListener("click", function (e) {
+            if (e.target === modal) {
+                modal.style.display = "none";
+                iframe.src = "";
+            }
+        });
+    });
+</script>
+
 
             <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
                 <h3>О нас</h3>
