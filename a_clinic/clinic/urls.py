@@ -4,7 +4,7 @@ from rest_framework.routers import SimpleRouter
 
 from . import views
 from .views import DoctorViewSet, ServiceViewSet, AppointmentViewSet, ReviewViewSet, DoctorDetailView, AppointmentView, \
-    TestimonialCreateView
+    TestimonialCreateView, TestimonialsView, TestimonialsAllView
 
 router = SimpleRouter()
 router.register(r'doctors', DoctorViewSet)
@@ -20,4 +20,6 @@ urlpatterns = [
     path('doctor/<slug:slug>/', DoctorDetailView.as_view(), name='doctor_detail'),
     path('appointment/doctor/<slug:slug>/', AppointmentView.as_view(), name='appointment'),
     path('add-testimonial/', TestimonialCreateView.as_view(), name='add_testimonial'),
+    path('testimonials/doctor/<slug:slug>/', TestimonialsView.as_view(), name='testimonials_doctor'),
+    path('testimonials/', TestimonialsAllView.as_view(), name='testimonials_all'),
 ]

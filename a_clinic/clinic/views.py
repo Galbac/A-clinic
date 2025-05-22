@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import DetailView, CreateView
+from django.views.generic import DetailView, CreateView, TemplateView
 from rest_framework import viewsets
 
 from .models import Doctor, Service, Appointment, Review, Testimonial
@@ -47,17 +47,16 @@ class HomeView(FormView):
         context['departments'] = Departments.objects.all()
         context['services'] = Service.objects.all()
         context['grouped_doctors'] = list(zip(*[iter(doctors)] * 4, strict=False))
-        context['testimonials'] = Testimonial.objects.all()
+        context['testimonials'] = Testimonial.objects.order_by('-date')
+        context['testimonial_form'] = TestimonialForm()
         return context
 
     def form_invalid(self, form):
-        print("Форма невалидна!", form.errors)
         # Возвращаем форму с нужным контекстом (врачи, услуги и т.д.)
         context = self.get_context_data(form=form)
         return render(self.request, self.template_name, context)
 
     def form_valid(self, form):
-        print("Форма валидна!")
         appointment = form.save()
         # Отправка в Telegram
         send_telegram_message(appointment)
@@ -94,3 +93,23 @@ class TestimonialCreateView(CreateView):
     form_class = TestimonialForm
     template_name = 'clinic/testimonial_form.html'
     success_url = reverse_lazy('home')
+
+
+class TestimonialsView(TemplateView):
+    template_name = "clinic/testimonials_list.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        slug = self.kwargs.get('slug')
+        doctor = Doctor.objects.get(slug=slug)
+        context["doctor"] = doctor
+        context["testimonials"] = Testimonial.objects.filter(doctor=doctor)
+        return context
+
+class TestimonialsAllView(TemplateView):
+    template_name = "clinic/testimonials_list.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["testimonials"] = Testimonial.objects.all()
+        return context

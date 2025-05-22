@@ -152,6 +152,7 @@ class Testimonial(models.Model):
     department = models.ForeignKey("Departments", on_delete=models.SET_NULL, null=True, blank=True,
                                    verbose_name="Отделение")
     image = models.ImageField(verbose_name="Фото пациента", upload_to='testimonials/', blank=True, null=True)
+    date = models.DateTimeField(verbose_name='Дата', auto_now_add=True, blank=True)
 
     class Meta:
         verbose_name = "Отзыв"

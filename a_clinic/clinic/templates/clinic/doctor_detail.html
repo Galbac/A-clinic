@@ -33,7 +33,13 @@
                 <a href="{% url 'appointment' slug=doctor.slug %}" class="btn btn-success w-100 mt-2">
                     🗓️ Записаться
                 </a>
+
                 {% endif %}
+                <div class="text-center mt-3">
+                    <a href="{% url 'testimonials_doctor' slug=doctor.slug %}" class="btn btn-outline-primary">
+                        <i class="bi bi-chat-left-text"></i> Посмотреть отзывы
+                    </a>
+                </div>
             </div>
 
             <!-- Правая часть -->
