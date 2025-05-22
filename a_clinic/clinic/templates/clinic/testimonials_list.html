@@ -21,6 +21,7 @@
 
             <div>
                 <h5 class="mb-1">{{ testimonial.name }}</h5>
+                <small class="text-muted">{{ testimonial.date|date:"j F Y" }}</small>
                 {% if testimonial.department %}
                 <p class="mb-1"><strong>Отделение:</strong> {{ testimonial.department.name }}</p>
                 {% endif %}

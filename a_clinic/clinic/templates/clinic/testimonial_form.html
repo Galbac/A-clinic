@@ -10,7 +10,7 @@
                 <div class="card-body p-5">
                     <h2 class="card-title mb-4 text-center">📝 Оставить отзыв</h2>
 
-                    <form method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+                    <form method="post" action="#testimonials" enctype="multipart/form-data" class="needs-validation" novalidate>
                         {% csrf_token %}
                         {% for field in form %}
                             <div class="mb-4">

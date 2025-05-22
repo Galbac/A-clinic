@@ -1,139 +1,142 @@
 {% load static widget_tweaks %}
 <!-- Testimonials Section -->
 <section id="testimonials" class="testimonials section py-5 bg-light">
-  <div class="container">
-    <div class="row gx-5 align-items-center">
+    <div class="container">
+        <div class="row gx-5 align-items-center">
 
-      <!-- Левая колонка -->
-      <div class="col-lg-5 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
-        <h3 class="display-5 fw-bold">Отзывы пациентов</h3>
-        <p class="text-muted fs-5">
-          Мы ценим обратную связь и постоянно улучшаем сервис. Оставьте свой отзыв и помогите нам стать лучше!
-        </p>
-        <button
-          type="button"
-          class="btn btn-success btn-lg mt-3"
-          data-bs-toggle="modal"
-          data-bs-target="#testimonialModal"
-        >
-          📝 Написать отзыв
-        </button>
-      </div>
+            <!-- Левая колонка -->
+            <div class="col-lg-5 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="display-5 fw-bold">Отзывы пациентов</h3>
+                <p class="text-muted fs-5">
+                    Мы ценим обратную связь и постоянно улучшаем сервис. Оставьте свой отзыв и помогите нам стать лучше!
+                </p>
+                <button
+                        type="button"
+                        class="btn btn-success btn-lg mt-3"
+                        data-bs-toggle="modal"
+                        data-bs-target="#testimonialModal"
+                >
+                    📝 Написать отзыв
+                </button>
+            </div>
 
-      <!-- Правая колонка -->
-      <div class="col-lg-7" data-aos="fade-up" data-aos-delay="200">
-        <div class="swiper init-swiper">
-          <script type="application/json" class="swiper-config">
-            {
-              "loop": true,
-              "speed": 600,
-              "autoplay": { "delay": 5000 },
-              "slidesPerView": 1,
-              "spaceBetween": 24,
-              "pagination": {
-                "el": ".swiper-pagination",
-                "type": "bullets",
-                "clickable": true
-              },
-              "breakpoints": {
-                "768": { "slidesPerView": 2 }
-              }
-            }
-          </script>
-          <div class="swiper-wrapper">
-            {% for testimonial in testimonials|slice:":5" %}
-              <div class="swiper-slide">
-                <div class="card h-100 shadow-sm border-0 rounded-4">
-                  <div class="card-body d-flex flex-column">
-                    <div class="d-flex align-items-center mb-3">
-                      {% if testimonial.image %}
-                        <img src="{{ testimonial.image.url }}" class="rounded-circle" width="60" height="60" alt="">
-                      {% else %}
-                        <img src="{% static 'img/default_user.png' %}" class="rounded-circle" width="60" height="60" alt="">
-                      {% endif %}
-                      <div class="ms-3">
-                        <h5 class="mb-1">{{ testimonial.name }}</h5>
-                        <small class="text-muted">{{ testimonial.date|date:"j F Y" }}</small>
-                      </div>
-                    </div>
-                    <div class="mb-3">
-                      <div class="stars">
-                        {% for i in "12345"|make_list %}
-                          {% if forloop.counter <= testimonial.stars %}
-                            <i class="bi bi-star-fill text-warning"></i>
-                          {% else %}
-                            <i class="bi bi-star text-muted"></i>
-                          {% endif %}
+            <!-- Правая колонка -->
+            <div class="col-lg-7" data-aos="fade-up" data-aos-delay="200">
+                <div class="swiper init-swiper">
+                    <script type="application/json" class="swiper-config">
+                        {
+                            "loop": true,
+                            "speed": 600,
+                            "autoplay": {
+                                "delay": 5000
+                            },
+                            "slidesPerView": 1,
+                            "spaceBetween": 24,
+                            "pagination": {
+                                "el": ".swiper-pagination",
+                                "type": "bullets",
+                                "clickable": true
+                            },
+                            "breakpoints": {
+                                "768": {
+                                    "slidesPerView": 2
+                                }
+                            }
+                        }
+                    </script>
+                    <div class="swiper-wrapper">
+                        {% for testimonial in testimonials|slice:":5" %}
+                        <div class="swiper-slide d-flex">
+                            <div class="card shadow-sm border-0 rounded-4 w-100 d-flex flex-column"
+                                 style="min-height: 100%;">
+                                <div class="card-body d-flex flex-column h-100">
+                                    <div class="d-flex align-items-center mb-3">
+                                        {% if testimonial.image %}
+                                        <img src="{{ testimonial.image.url }}" class="rounded-circle" width="60"
+                                             height="60" alt="">
+                                        {% else %}
+                                        <img src="{% static 'img/default_user.png' %}" class="rounded-circle" width="60"
+                                             height="60" alt="">
+                                        {% endif %}
+                                        <div class="ms-3">
+                                            <h5 class="mb-1">{{ testimonial.name }}</h5>
+                                            <small class="text-muted">{{ testimonial.date|date:"j F Y" }}</small>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="stars">
+                                            {% for i in "12345"|make_list %}
+                                            {% if forloop.counter <= testimonial.stars %}
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            {% else %}
+                                            <i class="bi bi-star text-muted"></i>
+                                            {% endif %}
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                    <p class="card-text text-secondary flex-grow-1">“{{ testimonial.text }}”</p>
+                                    {% if testimonial.doctor or testimonial.department %}
+                                    <div class="mt-3">
+                                        {% if testimonial.doctor %}
+                                        <span class="badge bg-primary text-white me-1">{{ testimonial.doctor.name }}</span>
+                                        {% endif %}
+                                        {% if testimonial.department %}
+                                        <span class="badge bg-secondary text-white">{{ testimonial.department.name }}</span>
+                                        {% endif %}
+                                    </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
                         {% endfor %}
-                      </div>
                     </div>
-                    <p class="card-text text-secondary flex-grow-1">“{{ testimonial.text }}”</p>
-                    {% if testimonial.doctor or testimonial.department %}
-                      <div class="mt-3">
-                        {% if testimonial.doctor %}
-                          <span class="badge bg-primary text-white me-1">
-                            {{ testimonial.doctor.name }}
-                          </span>
-                        {% endif %}
-                        {% if testimonial.department %}
-                          <span class="badge bg-secondary text-white">
-                            {{ testimonial.department.name }}
-                          </span>
-                        {% endif %}
-                      </div>
-                    {% endif %}
-                  </div>
+                    <div class="swiper-pagination mt-4"></div>
                 </div>
-              </div>
-            {% endfor %}
-          </div>
-          <div class="swiper-pagination mt-4"></div>
+            </div>
         </div>
-      </div>
 
+        <!-- Ссылка на все отзывы -->
+        <div class="row">
+            <div class="col text-center mt-5">
+                <a href="{% url 'testimonials_all' %}" class="btn btn-outline-secondary btn-lg">Все отзывы</a>
+            </div>
+        </div>
     </div>
-
-    <!-- Ссылка на полный список -->
-    <div class="row">
-      <div class="col text-center mt-5">
-        <a href="{% url 'testimonials_all' %}" class="btn btn-outline-secondary btn-lg">
-          Все отзывы
-        </a>
-      </div>
-    </div>
-  </div>
 </section>
-<!-- /Testimonials Section -->
 
 <!-- Модальное окно -->
 <div class="modal fade" id="testimonialModal" tabindex="-1" aria-labelledby="testimonialModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg modal-dialog-centered">
-    <div class="modal-content rounded-4">
-      <form method="post" action="{% url 'add_testimonial' %}" enctype="multipart/form-data" class="needs-validation" novalidate>
-        {% csrf_token %}
-        <div class="modal-header border-0">
-          <h5 class="modal-title" id="testimonialModalLabel">📝 Оставить отзыв</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content rounded-4">
+            <form method="post" action="{% url 'add_testimonial' %}" enctype="multipart/form-data"
+                  class="needs-validation" novalidate>
+                {% csrf_token %}
+                <div class="modal-header border-0">
+                    <h5 class="modal-title" id="testimonialModalLabel">📝 Оставить отзыв</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row gy-3">
+                        {% for field in testimonial_form %}
+                        <div class="col-12">
+                            <label for="{{ field.id_for_label }}" class="form-label">
+                                {{ field.label }}
+                                {% if field.field.required %}
+                                <span class="text-danger">*</span>
+                                {% endif %}
+                            </label>
+                            {{ field|add_class:"form-control" }}
+                            {% for err in field.errors %}
+                            <div class="text-danger small">{{ err }}</div>
+                            {% endfor %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="modal-footer border-0 justify-content-center">
+                    <button type="submit" class="btn btn-primary btn-lg px-5">Отправить отзыв</button>
+                </div>
+            </form>
         </div>
-        <div class="modal-body">
-          <div class="row gy-3">
-            {% for field in testimonial_form %}
-              <div class="col-12">
-                <label for="{{ field.id_for_label }}" class="form-label">
-                  {{ field.label }}{% if field.field.required %}<span class="text-danger">*</span>{% endif %}
-                </label>
-                {{ field|add_class:"form-control" }}
-                {% for err in field.errors %}
-                  <div class="text-danger small">{{ err }}</div>
-                {% endfor %}
-              </div>
-            {% endfor %}
-          </div>
-        </div>
-        <div class="modal-footer border-0 justify-content-center">
-          <button type="submit" class="btn btn-primary btn-lg px-5">Отправить отзыв</button>
-        </div>
-      </form>
     </div>
-  </div>
 </div>

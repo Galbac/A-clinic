@@ -106,10 +106,11 @@ class TestimonialsView(TemplateView):
         context["testimonials"] = Testimonial.objects.filter(doctor=doctor)
         return context
 
+
 class TestimonialsAllView(TemplateView):
     template_name = "clinic/testimonials_list.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["testimonials"] = Testimonial.objects.all()
+        context["testimonials"] = Testimonial.objects.order_by('-date')
         return context
