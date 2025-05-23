@@ -9,28 +9,23 @@
     </div><!-- Конец заголовка раздела -->
 
     <div class="container">
-
         <div class="row justify-content-center">
-
             <div class="col-lg-10" data-aos="fade-up" data-aos-delay="100">
-                {%for f in faq%}
-                <div class="faq-container">
 
+                <div class="faq-container">
+                    {% for f in faq %}
                     <div class="faq-item">
-                        <h3>{{f.question}}</h3>
+                        <h3>{{ f.question }}</h3>
                         <div class="faq-content">
-                            <p>{{f.answer}}</p>
+                            <p>{{ f.answer }}</p>
                         </div>
                         <i class="faq-toggle bi bi-chevron-right"></i>
-
                     </div><!-- Конец элемента FAQ -->
-                    {%endfor%}
+                    {% endfor %}
                 </div>
 
             </div><!-- Конец столбца FAQ -->
-
         </div>
-
     </div>
 
 </section><!-- /Faq Section -->

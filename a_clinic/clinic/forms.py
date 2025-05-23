@@ -3,7 +3,7 @@ from django.utils.timezone import is_naive, make_aware, now
 from django_recaptcha.fields import ReCaptchaField
 from django_recaptcha.widgets import ReCaptchaV2Checkbox
 
-from .models import Appointment, Testimonial
+from .models import Appointment, Testimonial, Departments
 
 
 class AppointmentForm(forms.ModelForm):
@@ -27,6 +27,7 @@ class AppointmentForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['department'].empty_label = "Выберите отделение"
+        self.fields['department'].queryset = Departments.objects.all()
 
     def clean_phone(self):
         phone = self.cleaned_data.get('phone')
@@ -47,7 +48,7 @@ class AppointmentForm(forms.ModelForm):
     def clean_captcha(self):
         captcha_value = self.cleaned_data.get('captcha')
         if not captcha_value:
-            raise forms.ValidationError("Пожалуйстаffff, подтвердите, что вы не робот.")
+            raise forms.ValidationError("Пожалуйста, подтвердите, что вы не робот.")
         return captcha_value
 
     def clean_name(self):

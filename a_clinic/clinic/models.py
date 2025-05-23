@@ -44,7 +44,13 @@ class Doctor(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.slug:
-            self.slug = slugify(self.name)
+            base_slug = slugify(self.name)
+            slug = base_slug
+            num = 1
+            while Doctor.objects.filter(slug=slug).exists():
+                slug = f'{base_slug}-{num}'
+                num += 1
+            self.slug = slug
         super().save(*args, **kwargs)
 
 
@@ -104,10 +110,10 @@ class Review(models.Model):
 
 
 class Departments(models.Model):
-    name = models.CharField(verbose_name='Название отделения')
-    bio = models.CharField(verbose_name="Краткое описание")
+    name = models.CharField(verbose_name='Название отделения', max_length=255)
+    bio = models.TextField(verbose_name="Краткое описание")
     photo = models.ImageField(verbose_name="Фото", upload_to='departments/', blank=True, null=True)
-    description = models.CharField(verbose_name="Описание")
+    description = models.TextField(verbose_name="Описание")
 
     class Meta:
         verbose_name = 'Отдел'
@@ -131,25 +137,17 @@ class SocialNetwork(models.Model):
         return f"Соцсети: Instagram={self.instagram}, Telegram={self.telegram}, WhatsApp={self.whatsapp}"
 
 
-# class Menu(models.Model):
-# name = models.CharField(verbose_name='Название клиники')
-# number = models.CharField(verbose_name='Номер телефона')
-# email = models.EmailField(verbose_name="E-mail")
-# appointment = models.CharField(verbose_name='Записаться на прием')
-# social_links = models.OneToOneField('SocialNetwork', on_delete=models.SET_NULL, null=True, blank=True)
-
-
 class Title(models.Model):
     name = models.CharField(verbose_name='Название заголовка')
-    description = models.CharField(verbose_name='Описание')
+    description = models.TextField(verbose_name='Описание')
 
 
 class Testimonial(models.Model):
     name = models.CharField("Имя пациента", max_length=100)
     stars = models.PositiveSmallIntegerField("Оценка (звезды)", default=5)
     text = models.TextField("Текст отзыва")
-    doctor = models.ForeignKey("Doctor", on_delete=models.SET_NULL, null=True, blank=True, verbose_name="Врач")
-    department = models.ForeignKey("Departments", on_delete=models.SET_NULL, null=True, blank=True,
+    doctor = models.ForeignKey("Doctor", on_delete=models.CASCADE, verbose_name="Врач")
+    department = models.ForeignKey("Departments", on_delete=models.CASCADE,
                                    verbose_name="Отделение")
     image = models.ImageField(verbose_name="Фото пациента", upload_to='testimonials/', blank=True, null=True)
     date = models.DateTimeField(verbose_name='Дата', auto_now_add=True, blank=True)

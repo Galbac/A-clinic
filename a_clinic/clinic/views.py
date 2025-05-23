@@ -1,8 +1,12 @@
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views.generic import DetailView, CreateView, TemplateView
+from django.views.generic.edit import FormView
 from rest_framework import viewsets
 
-from .models import Doctor, Service, Appointment, Review, Testimonial
+from .forms import AppointmentForm, TestimonialForm
+from .models import Appointment, Review, Testimonial
+from .models import Doctor, FAQ, Departments, Service
 from .serializers import DoctorSerializer, ServiceSerializer, AppointmentSerializer, ReviewSerializer
 from .templates.clinic.utils import send_telegram_message
 
@@ -29,12 +33,6 @@ class ReviewViewSet(viewsets.ModelViewSet):
     serializer_class = ReviewSerializer
 
 
-from django.views.generic.edit import FormView
-from django.urls import reverse_lazy
-from .forms import AppointmentForm, TestimonialForm
-from .models import Doctor, FAQ, Departments, Service
-
-
 class HomeView(FormView):
     template_name = 'clinic/index.html'
     form_class = AppointmentForm
@@ -42,12 +40,14 @@ class HomeView(FormView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        doctors = Doctor.objects.filter(available=True)
+        doctors = Doctor.objects.filter(available=True).select_related('department', 'social_links')
         context['faq'] = FAQ.objects.all()
-        context['departments'] = Departments.objects.all()
+        context['departments'] = list(Departments.objects.all())
         context['services'] = Service.objects.all()
-        context['grouped_doctors'] = list(zip(*[iter(doctors)] * 4, strict=False))
-        context['testimonials'] = Testimonial.objects.order_by('-date')
+        group_size = 4
+        grouped_doctors = [doctors[i:i + group_size] for i in range(0, len(doctors), group_size)]
+        context['grouped_doctors'] = grouped_doctors
+        context["testimonials"] = Testimonial.objects.select_related('department', 'doctor').order_by('-date')
         context['testimonial_form'] = TestimonialForm()
         return context
 
@@ -103,7 +103,7 @@ class TestimonialsView(TemplateView):
         slug = self.kwargs.get('slug')
         doctor = Doctor.objects.get(slug=slug)
         context["doctor"] = doctor
-        context["testimonials"] = Testimonial.objects.filter(doctor=doctor)
+        context["testimonials"] = Testimonial.objects.filter(doctor=doctor).select_related('department', 'doctor')
         return context
 
 
@@ -112,5 +112,5 @@ class TestimonialsAllView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["testimonials"] = Testimonial.objects.order_by('-date')
+        context["testimonials"] = Testimonial.objects.select_related('department', 'doctor').order_by('-date')
         return context
