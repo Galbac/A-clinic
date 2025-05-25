@@ -24,10 +24,33 @@
                 </div>
 
                 {% if doctor.video_presentation %}
-                <a href="{{ doctor.video_presentation }}" class="btn btn-outline-secondary w-100 mt-3">
+                <!-- Кнопка открытия модального окна -->
+                <button type="button" class="btn btn-outline-secondary w-100 mt-3" data-bs-toggle="modal"
+                        data-bs-target="#videoModal">
                     🎥 Видео-презентация
-                </a>
+                </button>
+
+                <!-- Модальное окно -->
+                <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="videoModalLabel">Видео-презентация врача</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Закрыть"></button>
+                            </div>
+                            <div class="modal-body p-0">
+                                <div class="ratio ratio-16x9">
+                                    <iframe src="{{ doctor.video_presentation|cut:'watch?v='|add:'embed/' }}"
+                                            title="Видео-презентация" allowfullscreen></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 {% endif %}
+
 
                 {% if doctor.appointments_url %}
                 <a href="{% url 'appointment' slug=doctor.slug %}" class="btn btn-success w-100 mt-2">
@@ -49,17 +72,65 @@
 
                 <div class="row mt-3">
                     <div class="col-sm-6">
-                        <p><strong>Стаж:</strong> {{ doctor.experience_years }} лет</p>
-                        <p><strong>Образование:</strong> {{ doctor.education|default:"—" }}</p>
-                        <p><strong>Рабочие дни:</strong><br>{{ doctor.working_days|linebreaks }}</p>
-                        <p><strong>Часы:</strong><br>{{ doctor.working_hours|linebreaks }}</p>
+                        <p><strong>Стаж:</strong>
+                            {%if doctor.experience_years%}
+                            {{ doctor.experience_years }} лет
+                            {%else%}
+                            Не указано
+                            {%endif%}
+                        </p>
+                        <p><strong>Образование:</strong>
+                            {%if doctor.education%}
+                            {{ doctor.education}}
+                            {%else%}
+                            Не указано
+                            {%endif%}
+                        </p>
+                        <p><strong>Рабочие дни:</strong><br>
+                            {%if doctor.working_days%}
+                            {{ doctor.working_days|linebreaks }}
+                            {%else%}
+                            Не указано
+                            {%endif%}
+                        </p>
+                        <p><strong>Часы:</strong><br>
+                            {%if doctor.working_hours%}
+                            {{ doctor.working_hours|linebreaks }}
+                            {%else%}
+                            Не указано
+                            {%endif%}
+                        </p>
                     </div>
                     <div class="col-sm-6">
-                        <p><strong>Пол:</strong> {{ doctor.get_gender_display }}</p>
-                        <p><strong>Онлайн-консультации:</strong> {{ doctor.accepts_online|yesno:"Да,Нет" }}</p>
-                        <p><strong>Цена за приём:</strong> {{ doctor.price_per_consultation }} ₽</p>
-                        <p><strong>Рейтинг:</strong> {{ doctor.rating }}</p>
-                        <p><strong>SEO описание:</strong> {{ doctor.seo_description|default:"—" }}</p>
+                        <p><strong>Пол:</strong>
+                            {%if doctor.get_gender_display%}
+                            {{ doctor.get_gender_display }}
+                            {%else%}
+                            Не указано
+                            {%endif%}
+                        </p>
+                        <p><strong>Онлайн-консультации:</strong>
+                            {{ doctor.accepts_online|yesno:"Да,Нет" }}</p>
+                        <p><strong>Цена за приём:</strong> {%if doctor.price_per_consultation%}
+                            {{ doctor.price_per_consultation }} ₽
+                            {%else%}
+                            Не указано
+                            {%endif%}
+                        </p>
+                        <p><strong>Средний рейтинг по отзывам:</strong>
+                            {% if average_rating %}
+                            {{ average_rating }} ⭐
+                            {% else %}
+                            Нет отзывов
+                            {% endif %}
+                        </p>
+                        <p><strong>SEO описание:</strong>
+                            {%if doctor.seo_description%}
+                            {{ doctor.seo_description}}
+                            {%else%}
+                            Не указано
+                            {%endif%}
+                        </p>
                     </div>
                 </div>
 

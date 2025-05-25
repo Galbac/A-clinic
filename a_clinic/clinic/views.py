@@ -1,3 +1,4 @@
+from django.db.models import Avg
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import DetailView, CreateView, TemplateView
@@ -5,7 +6,7 @@ from django.views.generic.edit import FormView
 from rest_framework import viewsets
 
 from .forms import AppointmentForm, TestimonialForm
-from .models import Appointment, Review, Testimonial
+from .models import Appointment, Review, Testimonial, Gallery
 from .models import Doctor, FAQ, Departments, Service
 from .serializers import DoctorSerializer, ServiceSerializer, AppointmentSerializer, ReviewSerializer
 from .templates.clinic.utils import send_telegram_message
@@ -49,6 +50,7 @@ class HomeView(FormView):
         context['grouped_doctors'] = grouped_doctors
         context["testimonials"] = Testimonial.objects.select_related('department', 'doctor').order_by('-date')
         context['testimonial_form'] = TestimonialForm()
+        context['gallery_photos'] = Gallery.objects.all()
         return context
 
     def form_invalid(self, form):
@@ -70,6 +72,13 @@ class DoctorDetailView(DetailView):
     context_object_name = 'doctor'
     slug_field = 'slug'
     slug_url_kwarg = 'slug'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        testimonials = Testimonial.objects.filter(doctor=self.object).select_related('department', 'doctor')
+        average_rating = testimonials.aggregate(avg_rating=Avg('stars'))['avg_rating']
+        context["average_rating"] = round(average_rating, 2) if average_rating else None
+        return context
 
 
 class AppointmentView(FormView):
@@ -103,7 +112,8 @@ class TestimonialsView(TemplateView):
         slug = self.kwargs.get('slug')
         doctor = Doctor.objects.get(slug=slug)
         context["doctor"] = doctor
-        context["testimonials"] = Testimonial.objects.filter(doctor=doctor).select_related('department', 'doctor')
+        testimonials = Testimonial.objects.filter(doctor=doctor).select_related('department', 'doctor')
+        context["testimonials"] = testimonials
         return context
 
 

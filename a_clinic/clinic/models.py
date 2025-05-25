@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
+from rest_framework.fields import ImageField
 
 # Create your models here.
 user = get_user_model()
@@ -158,3 +159,6 @@ class Testimonial(models.Model):
 
     def __str__(self):
         return f"{self.name} - {self.stars}⭐"
+
+class Gallery(models.Model):
+    photo = models.ImageField(upload_to='gallery/', null=True,blank=True)
