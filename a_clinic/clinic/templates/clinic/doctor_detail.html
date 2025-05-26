@@ -11,15 +11,13 @@
             <div class="col-lg-4 p-4 d-flex flex-column align-items-center">
                 <div class="w-100" style="max-width: 300px;">
                     {% if doctor.photo %}
-                    <img src="{{ doctor.photo.url }}" alt="{{ doctor.name }}"
-                         class="img-fluid rounded"
-                         style="width: 100%; height: auto; max-height: 400px; object-fit: contain;">
-
+                        <img src="{{ doctor.photo.url }}" alt="{{ doctor.name }}"
+                             class="img-fluid rounded"
+                             style="width: 100%; height: auto; max-height: 400px; object-fit: contain;">
                     {% else %}
-                    <img src="{% static 'img/default_user.png' %}" alt="Фото отсутствует"
-                         class="img-fluid rounded"
-                         style="width: 100%; height: auto; max-height: 400px; object-fit: contain;">
-
+                        <img src="{% static 'img/default_user.png' %}" alt="Фото отсутствует"
+                             class="img-fluid rounded"
+                             style="width: 100%; height: auto; max-height: 400px; object-fit: contain;">
                     {% endif %}
                 </div>
 
@@ -42,8 +40,10 @@
                             </div>
                             <div class="modal-body p-0">
                                 <div class="ratio ratio-16x9">
-                                    <iframe src="{{ doctor.video_presentation|cut:'watch?v='|add:'embed/' }}"
-                                            title="Видео-презентация" allowfullscreen></iframe>
+                                    {% with video_id=doctor.video_presentation|cut:"https://www.youtube.com/watch?v="|cut:"https://youtu.be/"|cut:"&" %}
+                                        <iframe src="https://www.youtube.com/embed/{{ video_id }}"
+                                                title="Видео-презентация" allowfullscreen></iframe>
+                                    {% endwith %}
                                 </div>
                             </div>
                         </div>
@@ -51,12 +51,10 @@
                 </div>
                 {% endif %}
 
-
                 {% if doctor.appointments_url %}
                 <a href="{% url 'appointment' slug=doctor.slug %}" class="btn btn-success w-100 mt-2">
                     🗓️ Записаться
                 </a>
-
                 {% endif %}
                 <div class="text-center mt-3">
                     <a href="{% url 'testimonials_doctor' slug=doctor.slug %}" class="btn btn-outline-primary">
@@ -73,64 +71,23 @@
                 <div class="row mt-3">
                     <div class="col-sm-6">
                         <p><strong>Стаж:</strong>
-                            {%if doctor.experience_years%}
-                            {{ doctor.experience_years }} лет
-                            {%else%}
-                            Не указано
-                            {%endif%}
-                        </p>
+                            {{ doctor.experience_years|default:"Не указано" }} лет</p>
                         <p><strong>Образование:</strong>
-                            {%if doctor.education%}
-                            {{ doctor.education}}
-                            {%else%}
-                            Не указано
-                            {%endif%}
-                        </p>
+                            {{ doctor.education|default:"Не указано" }}</p>
                         <p><strong>Рабочие дни:</strong><br>
-                            {%if doctor.working_days%}
-                            {{ doctor.working_days|linebreaks }}
-                            {%else%}
-                            Не указано
-                            {%endif%}
-                        </p>
+                            {{ doctor.working_days|linebreaks|default:"Не указано" }}</p>
                         <p><strong>Часы:</strong><br>
-                            {%if doctor.working_hours%}
-                            {{ doctor.working_hours|linebreaks }}
-                            {%else%}
-                            Не указано
-                            {%endif%}
-                        </p>
+                            {{ doctor.working_hours|linebreaks|default:"Не указано" }}</p>
                     </div>
                     <div class="col-sm-6">
-                        <p><strong>Пол:</strong>
-                            {%if doctor.get_gender_display%}
-                            {{ doctor.get_gender_display }}
-                            {%else%}
-                            Не указано
-                            {%endif%}
-                        </p>
-                        <p><strong>Онлайн-консультации:</strong>
-                            {{ doctor.accepts_online|yesno:"Да,Нет" }}</p>
-                        <p><strong>Цена за приём:</strong> {%if doctor.price_per_consultation%}
-                            {{ doctor.price_per_consultation }} ₽
-                            {%else%}
-                            Не указано
-                            {%endif%}
-                        </p>
+                        <p><strong>Пол:</strong> {{ doctor.get_gender_display|default:"Не указано" }}</p>
+                        <p><strong>Онлайн-консультации:</strong> {{ doctor.accepts_online|yesno:"Да,Нет" }}</p>
+                        <p><strong>Цена за приём:</strong>
+                            {{ doctor.price_per_consultation|default:"Не указано" }} ₽</p>
                         <p><strong>Средний рейтинг по отзывам:</strong>
-                            {% if average_rating %}
-                            {{ average_rating }} ⭐
-                            {% else %}
-                            Нет отзывов
-                            {% endif %}
+                            {% if average_rating %}{{ average_rating }} ⭐{% else %}Нет отзывов{% endif %}
                         </p>
-                        <p><strong>SEO описание:</strong>
-                            {%if doctor.seo_description%}
-                            {{ doctor.seo_description}}
-                            {%else%}
-                            Не указано
-                            {%endif%}
-                        </p>
+                        <p><strong>SEO описание:</strong> {{ doctor.seo_description|default:"Не указано" }}</p>
                     </div>
                 </div>
 
@@ -153,16 +110,19 @@
                     <h5>📱 Социальные сети</h5>
                     <div class="d-flex gap-3 fs-4">
                         {% if doctor.social_links.telegram %}
-                        <a href="{{ doctor.social_links.telegram }}" class="text-primary" target="_blank"><i
-                                class="bi bi-telegram"></i></a>
+                        <a href="{{ doctor.social_links.telegram }}" class="text-primary" target="_blank">
+                            <i class="bi bi-telegram"></i>
+                        </a>
                         {% endif %}
                         {% if doctor.social_links.instagram %}
-                        <a href="{{ doctor.social_links.instagram }}" class="text-danger" target="_blank"><i
-                                class="bi bi-instagram"></i></a>
+                        <a href="{{ doctor.social_links.instagram }}" class="text-danger" target="_blank">
+                            <i class="bi bi-instagram"></i>
+                        </a>
                         {% endif %}
                         {% if doctor.social_links.whatsapp %}
-                        <a href="{{ doctor.social_links.whatsapp }}" class="text-success" target="_blank"><i
-                                class="bi bi-whatsapp"></i></a>
+                        <a href="{{ doctor.social_links.whatsapp }}" class="text-success" target="_blank">
+                            <i class="bi bi-whatsapp"></i>
+                        </a>
                         {% endif %}
                     </div>
                 </div>

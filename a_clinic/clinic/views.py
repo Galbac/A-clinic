@@ -9,7 +9,7 @@ from .forms import AppointmentForm, TestimonialForm
 from .models import Appointment, Review, Testimonial, Gallery
 from .models import Doctor, FAQ, Departments, Service
 from .serializers import DoctorSerializer, ServiceSerializer, AppointmentSerializer, ReviewSerializer
-from .templates.clinic.utils import send_telegram_message
+from .utils import send_telegram_message
 
 
 # Create your views here.

@@ -3,7 +3,6 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
-from rest_framework.fields import ImageField
 
 # Create your models here.
 user = get_user_model()
@@ -23,7 +22,7 @@ class Doctor(models.Model):
     special_services = models.TextField(verbose_name='Специальные услуги', blank=True)
     seo_description = models.CharField(max_length=160, verbose_name='SEO описание', blank=True)
     accepts_online = models.BooleanField(default=False, verbose_name='Онлайн-консультации')
-    appointments_url = models.URLField(verbose_name='Ссылка на запись', null=True, blank=True)
+    appointments_url = models.CharField(verbose_name='Ссылка на запись', null=True, blank=True)
     video_presentation = models.URLField(verbose_name='Видео-презентация', null=True, blank=True)
     working_days = models.CharField(max_length=100, verbose_name='Рабочие дни', blank=True)
     working_hours = models.CharField(max_length=100, verbose_name='Рабочие часы', blank=True)
@@ -47,11 +46,14 @@ class Doctor(models.Model):
         if not self.slug:
             base_slug = slugify(self.name)
             slug = base_slug
+            appointments_url = base_slug
             num = 1
             while Doctor.objects.filter(slug=slug).exists():
                 slug = f'{base_slug}-{num}'
+                appointments_url = f'{base_slug}-{num}'
                 num += 1
             self.slug = slug
+            self.appointments_url = appointments_url
         super().save(*args, **kwargs)
 
 
@@ -160,5 +162,6 @@ class Testimonial(models.Model):
     def __str__(self):
         return f"{self.name} - {self.stars}⭐"
 
+
 class Gallery(models.Model):
-    photo = models.ImageField(upload_to='gallery/', null=True,blank=True)
+    photo = models.ImageField(upload_to='gallery/', null=True, blank=True)

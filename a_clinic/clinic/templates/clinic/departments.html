@@ -1,45 +1,106 @@
-{% load static %}
 <section id="departments" class="departments section">
-    <div class="container section-title" data-aos="fade-up">
-        <h2>Отделы</h2>
-        <p>Необходимость этого действия вызвана некоторыми обстоятельствами, которые требуют внимательности и
-            сосредоточенности</p>
-    </div>
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Отделы</h2>
+    <p>
+      В нашей клинике работают специализированные отделы, каждый из которых предоставляет профессиональную
+      медицинскую помощь по своему направлению. Ознакомьтесь с перечнем, чтобы выбрать нужное отделение.
+    </p>
+  </div>
 
-    <div class="container" data-aos="fade-up" data-aos-delay="100">
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+    <div class="row">
+      <!-- Левая колонка с отделами -->
+      <div class="col-lg-3">
+        <ul class="nav flex-column" id="departments-list">
+          {% for department in departments %}
+          <li class="nav-item" {% if forloop.counter > 5 %}style="display:none" class="extra-department"{% endif %}>
+            <a href="#" class="nav-link {% if forloop.first %}active{% endif %}"
+               data-id="{{ department.id }}"
+               data-name="{{ department.name|escapejs }}"
+               data-bio="{{ department.bio|escapejs }}"
+               data-description="{{ department.description|escapejs }}"
+               data-photo="{{ department.photo.url }}">
+              {{ department.name }}
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+
+        {% if departments|length > 5 %}
+        <button id="toggle-departments" class="btn btn-outline-primary btn-sm mt-3">Показать все отделы ↓</button>
+        {% endif %}
+      </div>
+
+      <!-- Правая колонка с динамической информацией -->
+      <div class="col-lg-9 mt-4 mt-lg-0" id="department-details">
         <div class="row">
-            <div class="col-lg-3">
-                <ul class="nav nav-tabs flex-column">
-                    {% for department in departments %}
-                    <li class="nav-item">
-                        <a class="nav-link {% if forloop.first %}active show{% endif %}" data-bs-toggle="tab"
-                           href="#department-tab-{{ department.id }}">
-                            {{ department.name }}
-                        </a>
-                    </li>
-                    {% endfor %}
-                </ul>
-            </div>
-
-            <div class="col-lg-9 mt-4 mt-lg-0">
-                <div class="tab-content">
-                    {% for department in departments %}
-                    <div class="tab-pane {% if forloop.first %}active show{% endif %}"
-                         id="department-tab-{{ department.id }}">
-                        <div class="row">
-                            <div class="col-lg-8 details order-2 order-lg-1">
-                                <h3>{{ department.name }}</h3>
-                                <p class="fst-italic">{{ department.bio }}</p>
-                                <p>{{ department.description }}</p>
-                            </div>
-                            <div class="col-lg-4 text-center order-1 order-lg-2">
-                                <img src="{{ department.photo.url }}" alt="{{ department.name }}" class="img-fluid">
-                            </div>
-                        </div>
-                    </div>
-                    {% endfor %}
-                </div>
-            </div>
+          <div class="col-lg-8 details order-2 order-lg-1">
+            <h3>{{ departments.0.name }}</h3>
+            <p class="fst-italic">{{ departments.0.bio }}</p>
+            <p>{{ departments.0.description }}</p>
+          </div>
+          <div class="col-lg-4 text-center order-1 order-lg-2">
+            <img src="{{ departments.0.photo.url }}" alt="{{ departments.0.name }}" class="img-fluid" id="department-photo">
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const toggleBtn = document.getElementById("toggle-departments");
+  const departmentsList = document.getElementById("departments-list");
+  const detailsCol = document.querySelector("#department-details .details");
+  const photoImg = document.getElementById("department-photo");
+
+  // Скрываем дополнительные отделы по умолчанию
+  const extraItems = [...departmentsList.querySelectorAll("li")].filter((li, i) => i >= 5);
+
+  if (toggleBtn) {
+    toggleBtn.addEventListener("click", () => {
+      const isHidden = extraItems[0].style.display === "none";
+
+      extraItems.forEach(li => {
+        li.style.display = isHidden ? "block" : "none";
+      });
+
+      toggleBtn.textContent = isHidden ? "Скрыть отделы ↑" : "Показать все отделы ↓";
+    });
+  }
+
+  function updateDetails(link) {
+    // Снимаем активность со всех ссылок
+    departmentsList.querySelectorAll('a.nav-link').forEach(a => a.classList.remove('active'));
+
+    // Активируем текущий элемент
+    link.classList.add('active');
+
+    // Берём данные из data-атрибутов
+    const name = link.dataset.name;
+    const bio = link.dataset.bio;
+    const description = link.dataset.description;
+    const photo = link.dataset.photo;
+
+    // Обновляем текстовую часть
+    detailsCol.innerHTML = `
+      <h3>${name}</h3>
+      <p class="fst-italic">${bio}</p>
+      <p>${description}</p>
+    `;
+
+    // Обновляем фото
+    photoImg.src = photo;
+    photoImg.alt = name;
+  }
+
+  // Навешиваем обработчики на все ссылки
+  departmentsList.querySelectorAll('a.nav-link').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      updateDetails(link);
+    });
+  });
+});
+</script>

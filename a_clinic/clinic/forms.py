@@ -65,3 +65,8 @@ class TestimonialForm(forms.ModelForm):
         widgets = {
             'text': forms.Textarea(attrs={'rows': 4}),
         }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['doctor'].empty_label = 'Выберите врача'
+        self.fields['department'].empty_label = 'Выберите отделение'

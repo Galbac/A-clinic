@@ -1,16 +1,18 @@
 import requests
+from decouple import config
 
 
 def send_telegram_message(appointment):
-    BOT_TOKEN = '7561986373:AAHxKMyS5tR8-N-EDqsrp1Q_jEpQKTPfF60'  # Замени на свой токен
-    CHAT_ID = '430326400'  # Замени на свой ID
+    BOT_TOKEN = config('BOT_TOKEN')
+    CHAT_ID = config('CHAT_ID')
     TEXT = (
         f"📥 Новая запись на приём:\n\n"
         f"👤 Имя: {appointment.name}\n"
         f"📧 Email: {appointment.email}\n"
         f"📞 Телефон: {appointment.phone}\n"
         f"📅 Дата: {appointment.date}\n"
-        f"💬 Сообщение: {appointment.message}"
+        f"🏥 Отделение: {appointment.department}\n"
+        f"💬 Сообщение: {appointment.message}\n\n"
     )
 
     url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"

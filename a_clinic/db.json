@@ -5,9 +5,9 @@
   "fields": {
     "name": "Сайгидахмедова Джамиля Исрапиловна",
     "slug": "saigidakhmedova-dzhamilia-israpilovna",
-    "department": 1,
+    "department": 15,
     "photo": "doctors/saigidakhmedov_dzhamilya_israpilovna.png",
-    "bio": "Сергей Есенин не сразу нашел свое литературное кредо: он бросался из одного направления в другое. Сначала выступал в лаптях и рубахе с новокрестьянскими поэтами, затем, облачившись в пиджак и галстук, создавал с имажинистами﻿ новую литературу. В конце концов он отказался от всех школ и стал свободным художником, заявив: «Я не крестьянский поэт и не имажинист, я просто поэт».\n«Я отвоевал свою свободу»: детство и юность Сергея Есенина",
+    "bio": "Сергей Есенин не сразу нашел свое литературное кредо: он бросался из одного направления в другое. Сначала выступал в лаптях и рубахе с новокрестьянскими поэтами, затем, облачившись в пиджак и галстук, создавал с имажинистами﻿ новую литературу. В конце концов он отказался от всех школ и стал свободным художником, заявив: «Я не крестьянский поэт и не имажинист, я просто поэт».\r\n«Я отвоевал свою свободу»: детство и юность Сергея Есенина",
     "experience_years": 15,
     "education": "ДГМУ",
     "price_per_consultation": "5000.00",
@@ -16,7 +16,7 @@
     "seo_description": "SEO описание",
     "accepts_online": true,
     "appointments_url": "saigidakhmedova-dzhamilia-israpilovna",
-    "video_presentation": "апроапроапро",
+    "video_presentation": "https://www.youtube.com/watch?v=S7FqmPU8ZpQ",
     "working_days": "Пн–Пт",
     "working_hours": "09:00 - 12:00\\n13:00 - 17:00\\n18:00 - 20:00",
     "gender": "female",
@@ -40,8 +40,8 @@
     "special_services": "",
     "seo_description": "",
     "accepts_online": false,
-    "appointments_url": null,
-    "video_presentation": null,
+    "appointments_url": "muslimova-mariam-omargadzhievna",
+    "video_presentation": "аука",
     "working_days": "",
     "working_hours": "",
     "gender": "",
@@ -55,7 +55,7 @@
   "fields": {
     "name": "Хайрулаев Сулейман-Гаджи",
     "slug": "khairulaev-suleiman-gadzhi",
-    "department": 1,
+    "department": 17,
     "photo": "doctors/khairulaev_suleiman_gadzhi.png",
     "bio": "Лечение заболеваний, связанных с анестезией и хирургическими вмешательствами",
     "experience_years": 0,
@@ -65,7 +65,7 @@
     "special_services": "",
     "seo_description": "",
     "accepts_online": false,
-    "appointments_url": null,
+    "appointments_url": "khairulaev-suleiman-gadzhi",
     "video_presentation": null,
     "working_days": "",
     "working_hours": "",
@@ -78,9 +78,9 @@
   "model": "clinic.doctor",
   "pk": 4,
   "fields": {
-    "name": "Мирзоева\nЗейнаб\nШахмирзаевна",
+    "name": "Мирзоева Зейнаб Шахмирзаевна",
     "slug": "mirzoeva-zeinab-shakhmirzaevna",
-    "department": 1,
+    "department": 2,
     "photo": "doctors/mirzoeva_zeinab_shakhmirzaevna.png",
     "bio": "Объяснение проблем и решение вопросов, связанных с болезнями",
     "experience_years": 0,
@@ -90,7 +90,7 @@
     "special_services": "",
     "seo_description": "",
     "accepts_online": false,
-    "appointments_url": null,
+    "appointments_url": "mirzoeva-zeinab-shakhmirzaevna",
     "video_presentation": null,
     "working_days": "",
     "working_hours": "",
@@ -103,9 +103,9 @@
   "model": "clinic.doctor",
   "pk": 5,
   "fields": {
-    "name": "Абдулаев\nАлибулат\nМагомедович",
+    "name": "Абдулаев Алибулат Магомедович",
     "slug": "abdulaev-alibulat-magomedovich",
-    "department": 1,
+    "department": 16,
     "photo": "doctors/abdulaev_alibulat_magomedovich.png",
     "bio": "оуоуооувоорлр одрло ржролжролр одлр одлролр длорор длр дол ролр олродл рол длордлор дри род ро ор ор ор орд р орд др родроппсвапваопваорлвввввввввввввввввввввввввввввввввввввввввв порррррррррррррррррррррр орпдлродлролр олдродлролдродлр оларппапорп",
     "experience_years": 0,
@@ -115,7 +115,7 @@
     "special_services": "",
     "seo_description": "",
     "accepts_online": false,
-    "appointments_url": null,
+    "appointments_url": "abdulaev-alibulat-magomedovich",
     "video_presentation": null,
     "working_days": "",
     "working_hours": "",
@@ -130,7 +130,7 @@
   "fields": {
     "name": "Ибрагимов Ахмедхан Ахмедович",
     "slug": "ibragimov-akhmedkhanakhmedovich",
-    "department": 1,
+    "department": 16,
     "photo": "doctors/ibragimov_akhmedkhan_akhmedovich.png",
     "bio": "Ара Гога",
     "experience_years": 0,
@@ -140,7 +140,7 @@
     "special_services": "",
     "seo_description": "",
     "accepts_online": false,
-    "appointments_url": null,
+    "appointments_url": "ibragimov-akhmedkhanakhmedovich",
     "video_presentation": null,
     "working_days": "",
     "working_hours": "",
@@ -155,7 +155,7 @@
   "fields": {
     "name": "Алиева Ажи Умарасхабовна",
     "slug": "alieva-azhi-umaraskhabovna",
-    "department": 1,
+    "department": 15,
     "photo": "doctors/alieva_azhi_umaraskhabovna.jpg",
     "bio": "1",
     "experience_years": 0,
@@ -165,7 +165,7 @@
     "special_services": "",
     "seo_description": "",
     "accepts_online": false,
-    "appointments_url": null,
+    "appointments_url": "alieva-azhi-umaraskhabovna",
     "video_presentation": null,
     "working_days": "",
     "working_hours": "",
@@ -180,7 +180,7 @@
   "fields": {
     "name": "Изиев Мурат Магомедханович",
     "slug": "iziev-murat-magomedkhanovich",
-    "department": 1,
+    "department": 14,
     "photo": "doctors/iziev_murat_magomedkhanovich.png",
     "bio": "1",
     "experience_years": 0,
@@ -190,7 +190,7 @@
     "special_services": "",
     "seo_description": "",
     "accepts_online": false,
-    "appointments_url": null,
+    "appointments_url": "iziev-murat-magomedkhanovich",
     "video_presentation": null,
     "working_days": "",
     "working_hours": "",
@@ -215,7 +215,7 @@
     "special_services": "",
     "seo_description": "",
     "accepts_online": false,
-    "appointments_url": null,
+    "appointments_url": "safarova-anisat-abdulmalikovna",
     "video_presentation": null,
     "working_days": "",
     "working_hours": "",
@@ -230,7 +230,7 @@
   "fields": {
     "name": "Игнатьева Виолетта Александровна",
     "slug": "ignateva-violetta-aleksandrovna",
-    "department": 1,
+    "department": 13,
     "photo": "doctors/ignateva_violetta_alexsandrovna.png",
     "bio": "1",
     "experience_years": 0,
@@ -240,7 +240,7 @@
     "special_services": "",
     "seo_description": "",
     "accepts_online": false,
-    "appointments_url": null,
+    "appointments_url": "ignateva-violetta-aleksandrovna",
     "video_presentation": null,
     "working_days": "",
     "working_hours": "",
@@ -255,7 +255,7 @@
   "fields": {
     "name": "Магомедова Хадижат Тайгибовна",
     "slug": "magomedova-khadizhat-taigibovna",
-    "department": 1,
+    "department": 12,
     "photo": "doctors/magomedova_khadizhat_taigibovna.jpg",
     "bio": "1",
     "experience_years": 0,
@@ -265,7 +265,7 @@
     "special_services": "",
     "seo_description": "",
     "accepts_online": false,
-    "appointments_url": null,
+    "appointments_url": "magomedova-khadizhat-taigibovna",
     "video_presentation": null,
     "working_days": "",
     "working_hours": "",
@@ -280,7 +280,7 @@
   "fields": {
     "name": "Бисултанова Асият Супияновна",
     "slug": "bisultanova-asiiat-supiianovna",
-    "department": 1,
+    "department": 5,
     "photo": "doctors/bisultanov_asiyat_supiyanovna.png",
     "bio": "1",
     "experience_years": 0,
@@ -290,7 +290,7 @@
     "special_services": "",
     "seo_description": "",
     "accepts_online": false,
-    "appointments_url": null,
+    "appointments_url": "bisultanova-asiiat-supiianovna",
     "video_presentation": null,
     "working_days": "",
     "working_hours": "",
@@ -303,9 +303,9 @@
   "model": "clinic.doctor",
   "pk": 13,
   "fields": {
-    "name": "Рамазанов\nМагомед\nАлидибирович",
+    "name": "Рамазанов Магомед Алидибирович",
     "slug": "ramazanov-magomed-alidibirovich",
-    "department": 1,
+    "department": 11,
     "photo": "doctors/ramazanov_magomed_alidirovich.png",
     "bio": "1",
     "experience_years": 0,
@@ -315,7 +315,7 @@
     "special_services": "",
     "seo_description": "",
     "accepts_online": false,
-    "appointments_url": null,
+    "appointments_url": "ramazanov-magomed-alidibirovich",
     "video_presentation": null,
     "working_days": "",
     "working_hours": "",
@@ -330,7 +330,7 @@
   "fields": {
     "name": "Адильгереева Лайла Тажудиновна",
     "slug": "adilgereeva-laila-tazhudinovna",
-    "department": 1,
+    "department": 10,
     "photo": "doctors/adilgereeva_laia_tazhudinova.png",
     "bio": "1",
     "experience_years": 0,
@@ -340,7 +340,7 @@
     "special_services": "",
     "seo_description": "",
     "accepts_online": false,
-    "appointments_url": null,
+    "appointments_url": "adilgereeva-laila-tazhudinovna",
     "video_presentation": null,
     "working_days": "",
     "working_hours": "",
@@ -353,9 +353,9 @@
   "model": "clinic.doctor",
   "pk": 15,
   "fields": {
-    "name": "Абдулаева\nШамсият\nУвайсовна",
+    "name": "Абдулаева Шамсият Увайсовна",
     "slug": "abdulaeva-shamsiiat-uvaisovna",
-    "department": 1,
+    "department": 9,
     "photo": "doctors/abdulaeva_shamsiyat_uvaisovna.png",
     "bio": "1",
     "experience_years": 0,
@@ -365,7 +365,7 @@
     "special_services": "",
     "seo_description": "",
     "accepts_online": false,
-    "appointments_url": null,
+    "appointments_url": "abdulaeva-shamsiiat-uvaisovna",
     "video_presentation": null,
     "working_days": "",
     "working_hours": "",
@@ -378,9 +378,9 @@
   "model": "clinic.doctor",
   "pk": 16,
   "fields": {
-    "name": "Дарбишева\nХадижа\nШамиловна",
+    "name": "Дарбишева Хадижа Шамиловна",
     "slug": "darbisheva-khadizha-shamilovna",
-    "department": 1,
+    "department": 8,
     "photo": "doctors/darbisheva_khadizha_shamilovna.png",
     "bio": "1",
     "experience_years": 0,
@@ -390,7 +390,7 @@
     "special_services": "",
     "seo_description": "",
     "accepts_online": false,
-    "appointments_url": null,
+    "appointments_url": "darbisheva-khadizha-shamilovna",
     "video_presentation": null,
     "working_days": "",
     "working_hours": "",
@@ -403,9 +403,9 @@
   "model": "clinic.doctor",
   "pk": 17,
   "fields": {
-    "name": "Абдулаева Зара Магомедовна ",
+    "name": "Абдулаева Зара Магомедовна",
     "slug": "abdulaeva-zara-magomedovna",
-    "department": 1,
+    "department": 19,
     "photo": "doctors/abdulaeva_zara_magomedovna.png",
     "bio": "1",
     "experience_years": 0,
@@ -415,7 +415,7 @@
     "special_services": "",
     "seo_description": "",
     "accepts_online": false,
-    "appointments_url": null,
+    "appointments_url": "abdulaeva-zara-magomedovna",
     "video_presentation": null,
     "working_days": "",
     "working_hours": "",
@@ -430,7 +430,7 @@
   "fields": {
     "name": "Абдулганиева Хадиджа Омаровна",
     "slug": "abdulganieva-khadidzha-omarovna",
-    "department": 1,
+    "department": 7,
     "photo": "doctors/abdulganieva_khadidzha_omarovna.jpg",
     "bio": "1",
     "experience_years": 0,
@@ -440,7 +440,7 @@
     "special_services": "",
     "seo_description": "",
     "accepts_online": false,
-    "appointments_url": null,
+    "appointments_url": "abdulganieva-khadidzha-omarovna",
     "video_presentation": null,
     "working_days": "",
     "working_hours": "",
@@ -453,9 +453,9 @@
   "model": "clinic.doctor",
   "pk": 19,
   "fields": {
-    "name": "Луганов\nАбдулла\nСиражудинович",
+    "name": "Луганов Абдулла Сиражудинович",
     "slug": "luganov-abdulla-sirazhudinovich",
-    "department": 1,
+    "department": 6,
     "photo": "doctors/luganov_abdula_sirazhudinovich.png",
     "bio": "1",
     "experience_years": 0,
@@ -465,7 +465,7 @@
     "special_services": "",
     "seo_description": "",
     "accepts_online": false,
-    "appointments_url": null,
+    "appointments_url": "luganov-abdulla-sirazhudinovich",
     "video_presentation": null,
     "working_days": "",
     "working_hours": "",
@@ -480,17 +480,17 @@
   "fields": {
     "name": "Маматханов Магомед Рамазанович",
     "slug": "mamatkhanov-magomed-ramazanovich",
-    "department": 1,
+    "department": 18,
     "photo": "doctors/mamatkhanov_magomed_ramazanovich.png",
     "bio": "1fnfghdfghdfghdfghdf",
     "experience_years": 0,
     "education": "",
     "price_per_consultation": null,
-    "rating": 5.0,
+    "rating": 4.3,
     "special_services": "",
     "seo_description": "",
     "accepts_online": false,
-    "appointments_url": null,
+    "appointments_url": "mamatkhanov-magomed-ramazanovich",
     "video_presentation": null,
     "working_days": "",
     "working_hours": "",
@@ -609,1439 +609,48 @@
 },
 {
   "model": "clinic.appointment",
-  "pk": 1,
+  "pk": 116,
   "fields": {
-    "name": "dfgdfg",
-    "email": "zidan0556@gmail.com",
-    "phone": "56456",
-    "date": "2025-05-03T12:29:00Z",
-    "department": 2,
-    "doctor": 2,
-    "message": "546546456"
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 2,
-  "fields": {
-    "name": "dfgdfg",
-    "email": "zidan0556@gmail.com",
-    "phone": "56456",
-    "date": "2025-05-03T12:29:00Z",
-    "department": 2,
-    "doctor": 2,
-    "message": "546546456"
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 3,
-  "fields": {
-    "name": "dfgdfg",
-    "email": "zidan0556@gmail.com",
-    "phone": "56456",
-    "date": "2025-05-03T12:29:00Z",
-    "department": 2,
-    "doctor": 2,
-    "message": "546546456"
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 4,
-  "fields": {
-    "name": "dfgdfg",
-    "email": "zidan0556@gmail.com",
-    "phone": "56456",
-    "date": "2025-05-03T12:29:00Z",
-    "department": 2,
-    "doctor": 2,
-    "message": "546546456"
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 5,
-  "fields": {
-    "name": "dfgdfg",
-    "email": "zidan0556@gmail.com",
-    "phone": "56456",
-    "date": "2025-05-03T12:29:00Z",
-    "department": 2,
-    "doctor": 2,
-    "message": "546546456"
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 6,
-  "fields": {
-    "name": "dfgdfg",
-    "email": "zidan0556@gmail.com",
-    "phone": "56456",
-    "date": "2025-05-03T12:29:00Z",
-    "department": 2,
-    "doctor": 2,
-    "message": "546546456"
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 7,
-  "fields": {
-    "name": "dfgdfg",
-    "email": "zidan0556@gmail.com",
-    "phone": "56456",
-    "date": "2025-05-03T12:29:00Z",
-    "department": 2,
-    "doctor": 2,
-    "message": "546546456"
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 8,
-  "fields": {
-    "name": "dfgdfg",
-    "email": "zidan0556@gmail.com",
-    "phone": "56456",
-    "date": "2025-05-03T12:29:00Z",
-    "department": 2,
-    "doctor": 2,
-    "message": "546546456"
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 9,
-  "fields": {
-    "name": "dfgdfg",
-    "email": "zidan0556@gmail.com",
-    "phone": "56456",
-    "date": "2025-05-03T12:29:00Z",
-    "department": 2,
-    "doctor": 2,
-    "message": "546546456"
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 10,
-  "fields": {
-    "name": "dfgdfg",
-    "email": "zidan0556@gmail.com",
-    "phone": "56456",
-    "date": "2025-05-03T12:29:00Z",
-    "department": 2,
-    "doctor": 2,
-    "message": "546546456"
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 11,
-  "fields": {
-    "name": "dfgdfg",
-    "email": "zidan0556@gmail.com",
-    "phone": "56456",
-    "date": "2025-05-03T12:29:00Z",
-    "department": 2,
-    "doctor": 2,
-    "message": "546546456"
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 12,
-  "fields": {
-    "name": "dfgdfg",
-    "email": "zidan0556@gmail.com",
-    "phone": "56456",
-    "date": "2025-05-03T12:29:00Z",
-    "department": 2,
-    "doctor": 2,
-    "message": "546546456"
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 13,
-  "fields": {
-    "name": "dfgdfg",
-    "email": "zidan0556@gmail.com",
-    "phone": "56456",
-    "date": "2025-05-03T12:29:00Z",
-    "department": 2,
-    "doctor": 2,
-    "message": "546546456"
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 14,
-  "fields": {
-    "name": "dfgdfg",
-    "email": "zidan0556@gmail.com",
-    "phone": "56456",
-    "date": "2025-05-03T12:29:00Z",
-    "department": 2,
-    "doctor": 2,
-    "message": "546546456"
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 15,
-  "fields": {
-    "name": "dfgdfg",
-    "email": "zidan0556@gmail.com",
-    "phone": "56456",
-    "date": "2025-05-03T12:29:00Z",
-    "department": 2,
-    "doctor": 2,
-    "message": "546546456"
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 16,
-  "fields": {
-    "name": "dfgdfg",
-    "email": "zidan0556@gmail.com",
-    "phone": "56456",
-    "date": "2025-05-03T12:29:00Z",
-    "department": 2,
-    "doctor": 2,
-    "message": "546546456"
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 17,
-  "fields": {
-    "name": "dfgdfg",
-    "email": "zidan0556@gmail.com",
-    "phone": "56456",
-    "date": "2025-05-03T12:29:00Z",
-    "department": 2,
-    "doctor": 2,
-    "message": "546546456"
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 18,
-  "fields": {
-    "name": "dfgdfg",
-    "email": "zidan0556@gmail.com",
-    "phone": "56456",
-    "date": "2025-05-03T12:29:00Z",
-    "department": 2,
-    "doctor": 2,
-    "message": "546546456"
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 19,
-  "fields": {
-    "name": "dfgdfg",
-    "email": "zidan0556@gmail.com",
-    "phone": "56456",
-    "date": "2025-05-03T12:29:00Z",
-    "department": 2,
-    "doctor": 2,
-    "message": "546546456"
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 20,
-  "fields": {
-    "name": "dfgdfg",
-    "email": "zidan0556@gmail.com",
-    "phone": "56456",
-    "date": "2025-05-03T12:29:00Z",
-    "department": 2,
-    "doctor": 2,
-    "message": "546546456"
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 21,
-  "fields": {
-    "name": "dfgdfg",
-    "email": "zidan0556@gmail.com",
-    "phone": "56456",
-    "date": "2025-05-03T12:29:00Z",
-    "department": 2,
-    "doctor": 2,
-    "message": "546546456"
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 22,
-  "fields": {
-    "name": "dfgdfg",
-    "email": "zidan0556@gmail.com",
-    "phone": "56456",
-    "date": "2025-05-03T12:29:00Z",
-    "department": 2,
-    "doctor": 2,
-    "message": "546546456"
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 23,
-  "fields": {
-    "name": "dfgdfg",
-    "email": "zidan0556@gmail.com",
-    "phone": "56456",
-    "date": "2025-05-03T12:29:00Z",
-    "department": 2,
-    "doctor": 2,
-    "message": "546546456"
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 24,
-  "fields": {
-    "name": "dfgdfg",
-    "email": "zidan0556@gmail.com",
-    "phone": "56456",
-    "date": "2025-05-03T12:29:00Z",
-    "department": 2,
-    "doctor": 2,
-    "message": "546546456"
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 25,
-  "fields": {
-    "name": "dfgdfg",
-    "email": "zidan0556@gmail.com",
-    "phone": "56456",
-    "date": "2025-05-03T12:29:00Z",
-    "department": 2,
-    "doctor": 2,
-    "message": "546546456"
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 26,
-  "fields": {
-    "name": "dfgdfg",
-    "email": "zidan0556@gmail.com",
-    "phone": "56456",
-    "date": "2025-05-03T12:29:00Z",
-    "department": 2,
-    "doctor": 2,
-    "message": "546546456"
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 27,
-  "fields": {
-    "name": "dfgdfg",
-    "email": "zidan0556@gmail.com",
-    "phone": "56456",
-    "date": "2025-05-03T12:29:00Z",
-    "department": 2,
-    "doctor": 2,
-    "message": "546546456"
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 28,
-  "fields": {
-    "name": "pooi",
-    "email": "zidan0556@gmail.com",
-    "phone": "456456",
-    "date": "2025-05-14T12:37:00Z",
-    "department": 2,
-    "doctor": 3,
-    "message": "453"
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 29,
-  "fields": {
-    "name": "pooi",
-    "email": "zidan0556@gmail.com",
-    "phone": "456456",
-    "date": "2025-05-14T12:37:00Z",
-    "department": 2,
-    "doctor": 3,
-    "message": "453"
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 30,
-  "fields": {
-    "name": "pooi",
-    "email": "zidan0556@gmail.com",
-    "phone": "456456",
-    "date": "2025-05-14T12:37:00Z",
-    "department": 2,
-    "doctor": 3,
-    "message": "453"
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 31,
-  "fields": {
-    "name": "pooi",
-    "email": "zidan0556@gmail.com",
-    "phone": "456456",
-    "date": "2025-05-14T12:37:00Z",
-    "department": 2,
-    "doctor": 3,
-    "message": "453"
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 32,
-  "fields": {
-    "name": "pooi",
-    "email": "zidan0556@gmail.com",
-    "phone": "456456",
-    "date": "2025-05-14T12:37:00Z",
-    "department": 2,
-    "doctor": 3,
-    "message": "453"
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 33,
-  "fields": {
-    "name": "ryterye",
-    "email": "zidan0556@gmail.com",
-    "phone": "ertyeryterty",
-    "date": "2025-05-09T12:43:00Z",
-    "department": 2,
-    "doctor": 3,
-    "message": ""
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 34,
-  "fields": {
-    "name": "1111",
-    "email": "zidan0556@gmail.com",
-    "phone": "111111",
-    "date": "2025-05-08T12:44:00Z",
-    "department": 1,
-    "doctor": 2,
-    "message": ""
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 35,
-  "fields": {
-    "name": "1111",
-    "email": "zidan0556@gmail.com",
-    "phone": "111111",
-    "date": "2025-05-08T12:44:00Z",
-    "department": 1,
-    "doctor": 2,
-    "message": "1"
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 36,
-  "fields": {
-    "name": "1111",
-    "email": "zidan0556@gmail.com",
-    "phone": "111111",
-    "date": "2025-05-08T12:44:00Z",
-    "department": 1,
-    "doctor": 2,
-    "message": "1"
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 37,
-  "fields": {
-    "name": "1111",
-    "email": "zidan0556@gmail.com",
-    "phone": "111111",
-    "date": "2025-05-08T12:44:00Z",
-    "department": 1,
-    "doctor": 2,
-    "message": "1"
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 38,
-  "fields": {
-    "name": "1111",
-    "email": "zidan0556@gmail.com",
-    "phone": "111111",
-    "date": "2025-05-08T12:44:00Z",
-    "department": 1,
-    "doctor": 2,
-    "message": "1"
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 39,
-  "fields": {
-    "name": "1111",
-    "email": "zidan0556@gmail.com",
-    "phone": "111111",
-    "date": "2025-05-08T12:44:00Z",
-    "department": 1,
-    "doctor": 2,
-    "message": "1"
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 40,
-  "fields": {
-    "name": "rthffgdhdfgh",
-    "email": "zidan0556@gmail.com",
-    "phone": "111111",
-    "date": "2025-05-08T12:44:00Z",
-    "department": 1,
-    "doctor": 2,
-    "message": "1"
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 41,
-  "fields": {
-    "name": "rthffgdhdfgh",
-    "email": "zidan0556@gmail.com",
-    "phone": "111111",
-    "date": "2025-05-08T12:44:00Z",
-    "department": 1,
-    "doctor": 2,
-    "message": "1"
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 42,
-  "fields": {
-    "name": "rthffgdhdfgh",
-    "email": "zidan0556@gmail.com",
-    "phone": "111111",
-    "date": "2025-05-08T12:44:00Z",
-    "department": 1,
-    "doctor": 2,
-    "message": ""
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 43,
-  "fields": {
-    "name": "rthffgdhdfgh",
-    "email": "zidan0556@gmail.com",
-    "phone": "111111",
-    "date": "2025-05-08T12:44:00Z",
-    "department": 1,
-    "doctor": 2,
-    "message": ""
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 44,
-  "fields": {
-    "name": "rthffgdhdfgh",
-    "email": "zidan0556@gmail.com",
-    "phone": "424545454",
-    "date": "2025-05-08T12:44:00Z",
-    "department": 1,
-    "doctor": 2,
-    "message": ""
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 45,
-  "fields": {
-    "name": "rthffgdhdfgh",
-    "email": "zidan0556@gmail.com",
-    "phone": "424545454",
-    "date": "2025-05-08T12:44:00Z",
-    "department": 1,
-    "doctor": 2,
-    "message": ""
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 46,
-  "fields": {
-    "name": "56uutyuана некоторыми обстоятельствами, которые требуют внимательности и сосредоточенности",
-    "email": "zidan0556@gmail.com",
-    "phone": "54546454",
-    "date": "2025-05-16T12:46:00Z",
-    "department": 4,
-    "doctor": 5,
-    "message": ""
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 47,
-  "fields": {
-    "name": "ghjghj",
-    "email": "zidan0556@gmail.com",
-    "phone": "hkjghk",
-    "date": "2025-05-10T12:48:00Z",
-    "department": 1,
-    "doctor": 6,
-    "message": ""
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 48,
-  "fields": {
-    "name": "jklhjlkh",
-    "email": "zidan0556@gmail.com",
-    "phone": "hjklhjlk",
-    "date": "2025-05-02T12:53:00Z",
-    "department": 2,
-    "doctor": 2,
-    "message": "45234"
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 49,
-  "fields": {
-    "name": "456456",
-    "email": "zidan0556@gmail.com",
-    "phone": "5645646",
-    "date": "2025-05-17T12:53:00Z",
-    "department": 1,
-    "doctor": 2,
-    "message": "456456"
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 50,
-  "fields": {
-    "name": "jhkljhklhjlk",
-    "email": "zidan0556@gmail.com",
-    "phone": "568678",
-    "date": "2025-05-03T12:55:00Z",
-    "department": 1,
-    "doctor": 2,
-    "message": ""
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 51,
-  "fields": {
-    "name": "uuryturytur",
-    "email": "zidan0556@gmail.com",
-    "phone": "145435434",
-    "date": "2025-05-09T13:24:00Z",
-    "department": 3,
-    "doctor": 2,
-    "message": ""
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 52,
-  "fields": {
-    "name": "ghj,ghj,",
-    "email": "zidan0556@gmail.com",
-    "phone": "54646456323232323232",
-    "date": "2005-04-05T01:46:00Z",
-    "department": 1,
-    "doctor": 1,
-    "message": ""
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 53,
-  "fields": {
-    "name": "ghj,ghj,",
-    "email": "zidan0556@gmail.com",
-    "phone": "54646456323232323232",
-    "date": "2005-04-05T01:46:00Z",
-    "department": 1,
-    "doctor": 1,
-    "message": ""
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 54,
-  "fields": {
-    "name": "ghj,ghj,",
-    "email": "zidan0556@gmail.com",
-    "phone": "54646456323232323232",
-    "date": "2005-04-05T01:46:00Z",
-    "department": 1,
-    "doctor": 1,
-    "message": ""
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 55,
-  "fields": {
-    "name": "ghj,ghj,",
-    "email": "zidan0556@gmail.com",
-    "phone": "54646456323232323232",
-    "date": "2005-04-05T01:46:00Z",
-    "department": 1,
-    "doctor": 1,
-    "message": ""
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 56,
-  "fields": {
-    "name": "sdf",
+    "name": "Сапарбегов Зидан Зиявудинович",
     "email": "zidan_2002@mail.ru",
-    "phone": "9898787808",
-    "date": "2025-05-22T15:31:00Z",
-    "department": 1,
-    "doctor": 2,
-    "message": ""
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 57,
-  "fields": {
-    "name": "sdf",
-    "email": "maksimova_nastya97@mail.ru",
-    "phone": "9898787808",
-    "date": "2025-05-21T17:35:00Z",
-    "department": 2,
-    "doctor": 1,
-    "message": ""
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 58,
-  "fields": {
-    "name": "sdf",
-    "email": "zidan_2002@mail.ru",
-    "phone": "9898787808",
-    "date": "2025-05-01T17:42:00Z",
-    "department": 1,
-    "doctor": 1,
-    "message": ""
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 59,
-  "fields": {
-    "name": "sdf",
-    "email": "zidan_2002@mail.ru",
-    "phone": "9898787808",
-    "date": "2025-05-01T17:42:00Z",
-    "department": 1,
-    "doctor": 1,
-    "message": ""
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 60,
-  "fields": {
-    "name": "sdf",
-    "email": "zidan_2002@mail.ru",
-    "phone": "9898787808",
-    "date": "2025-05-01T17:42:00Z",
-    "department": 1,
-    "doctor": 1,
-    "message": ""
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 61,
-  "fields": {
-    "name": "sdf",
-    "email": "zidan_2002@mail.ru",
-    "phone": "9898787808",
-    "date": "2025-05-01T17:42:00Z",
-    "department": 1,
-    "doctor": 1,
-    "message": ""
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 62,
-  "fields": {
-    "name": "sdf",
-    "email": "zidan_2002@mail.ru",
-    "phone": "9898787808",
-    "date": "2025-05-01T17:42:00Z",
-    "department": 1,
-    "doctor": 1,
-    "message": ""
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 63,
-  "fields": {
-    "name": "sdf",
-    "email": "zidan_2002@mail.ru",
-    "phone": "9898787808",
-    "date": "2025-05-01T17:42:00Z",
-    "department": 1,
-    "doctor": 1,
-    "message": ""
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 64,
-  "fields": {
-    "name": "sdf",
-    "email": "zidan_2002@mail.ru",
-    "phone": "9898787808",
-    "date": "2025-06-01T18:23:00Z",
-    "department": 1,
-    "doctor": 1,
-    "message": ""
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 65,
-  "fields": {
-    "name": "sdf",
-    "email": "zidan_2002@mail.ru",
-    "phone": "9898787808",
-    "date": "2025-06-01T18:23:00Z",
-    "department": 1,
-    "doctor": 1,
-    "message": ""
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 66,
-  "fields": {
-    "name": "Сапарбегова Зарат",
-    "email": "zarat_2009@mail.ru",
     "phone": "89898787808",
-    "date": "2025-05-23T18:25:00Z",
-    "department": 1,
-    "doctor": 3,
-    "message": "У меня очень сильно болит сердце. Помогите мне"
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 67,
-  "fields": {
-    "name": "xzc",
-    "email": "zidan0556@gmail.com",
-    "phone": "xcxc",
-    "date": "2025-05-09T05:18:00Z",
-    "department": 3,
-    "doctor": 14,
-    "message": ""
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 68,
-  "fields": {
-    "name": "Амина",
-    "email": "zidan0556@gmail.com",
-    "phone": "868481458584+46+4+",
-    "date": "2025-05-22T09:48:00Z",
-    "department": 1,
-    "doctor": 9,
-    "message": "оошзошохшошхошщлъдлъдзхдщло"
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 69,
-  "fields": {
-    "name": "Амина",
-    "email": "zidan0556@gmail.com",
-    "phone": "868481458584+46+4+",
-    "date": "2025-05-22T09:48:00Z",
-    "department": 1,
-    "doctor": 9,
-    "message": "оошзошохшошхошщлъдлъдзхдщло"
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 70,
-  "fields": {
-    "name": "4234",
-    "email": "zidan0556@gmail.com",
-    "phone": "234234",
-    "date": "2025-05-08T11:34:00Z",
-    "department": 1,
-    "doctor": 1,
-    "message": "234234"
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 71,
-  "fields": {
-    "name": "11111111111",
-    "email": "zidan0556@gmail.com",
-    "phone": "111",
-    "date": "2025-05-17T11:45:00Z",
-    "department": 3,
-    "doctor": 3,
-    "message": ""
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 72,
-  "fields": {
-    "name": "2324",
-    "email": "zidan0556@gmail.com",
-    "phone": "234234324",
-    "date": "2025-05-10T11:49:00Z",
-    "department": 3,
-    "doctor": 17,
-    "message": "234234"
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 73,
-  "fields": {
-    "name": "234234",
-    "email": "zidan0556@gmail.com",
-    "phone": "арапрвар",
-    "date": "2025-05-16T11:52:00Z",
-    "department": 1,
-    "doctor": 4,
-    "message": "апрапр"
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 74,
-  "fields": {
-    "name": "123",
-    "email": "zidan0556@gmail.com",
-    "phone": "erg",
-    "date": "2025-05-11T12:19:00Z",
-    "department": 2,
-    "doctor": 2,
-    "message": ""
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 75,
-  "fields": {
-    "name": "54645",
-    "email": "zubayr_@live.com",
-    "phone": "45646",
-    "date": "2025-05-01T12:20:00Z",
-    "department": 4,
-    "doctor": 6,
-    "message": ""
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 76,
-  "fields": {
-    "name": "54654",
-    "email": "zidan0556@gmail.com",
-    "phone": "546",
-    "date": "2025-05-24T12:22:00Z",
-    "department": 2,
-    "doctor": 1,
-    "message": ""
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 77,
-  "fields": {
-    "name": "234234",
-    "email": "zidan0556@gmail.com",
-    "phone": "2342",
-    "date": "2025-05-23T16:26:00Z",
-    "department": 2,
-    "doctor": 2,
-    "message": ""
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 78,
-  "fields": {
-    "name": "223",
-    "email": "zidan_2002@mail.ru",
-    "phone": "34563456356",
-    "date": "2025-05-22T15:11:00Z",
-    "department": 1,
-    "doctor": 2,
-    "message": ""
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 79,
-  "fields": {
-    "name": "22",
-    "email": "zidan_2002@mail.ru",
-    "phone": "9898787808",
-    "date": "2025-05-22T15:12:00Z",
-    "department": 2,
-    "doctor": 2,
-    "message": ""
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 80,
-  "fields": {
-    "name": "11",
-    "email": "zidan_2002@mail.ru",
-    "phone": "9898787808",
-    "date": "2025-05-22T15:16:00Z",
-    "department": 1,
-    "doctor": 14,
-    "message": ""
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 81,
-  "fields": {
-    "name": "women",
-    "email": "zidan_2002@mail.ru",
-    "phone": "9898787808",
-    "date": "2025-05-22T15:47:00Z",
-    "department": 1,
-    "doctor": 1,
-    "message": ""
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 82,
-  "fields": {
-    "name": "453",
-    "email": "maksimova_nastya97@mail.ru",
-    "phone": "23423423424",
-    "date": "2025-05-22T17:12:00Z",
-    "department": 4,
-    "doctor": 5,
-    "message": ""
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 83,
-  "fields": {
-    "name": "sdf",
-    "email": "zidan_2002@mail.ru",
-    "phone": "45645645645567567567",
-    "date": "2025-05-23T17:57:00Z",
-    "department": 1,
-    "doctor": 17,
-    "message": ""
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 84,
-  "fields": {
-    "name": "213123",
-    "email": "zidan_2002@mail.ru",
-    "phone": "23453453453453",
-    "date": "2025-05-22T17:59:00Z",
-    "department": 3,
-    "doctor": 15,
-    "message": ""
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 85,
-  "fields": {
-    "name": "women",
-    "email": "zidan_2002@mail.ru",
-    "phone": "989878780823",
-    "date": "2025-05-22T18:00:00Z",
-    "department": 1,
-    "doctor": 18,
-    "message": ""
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 86,
-  "fields": {
-    "name": "23423",
-    "email": "zidan_2002@mail.ru",
-    "phone": "232323333333333",
-    "date": "2025-05-22T18:00:00Z",
-    "department": 2,
-    "doctor": 3,
-    "message": ""
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 87,
-  "fields": {
-    "name": "sdf",
-    "email": "zidan_2002@mail.ru",
-    "phone": "9898787808",
-    "date": "2025-05-22T18:01:00Z",
-    "department": 2,
-    "doctor": 14,
-    "message": ""
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 88,
-  "fields": {
-    "name": "1212",
-    "email": "zidan_2002@mail.ru",
-    "phone": "9898787808",
-    "date": "2025-05-22T18:04:00Z",
-    "department": 1,
-    "doctor": 1,
-    "message": ""
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 89,
-  "fields": {
-    "name": "sdf",
-    "email": "zidan_2002@mail.ru",
-    "phone": "9898787808",
-    "date": "2025-05-23T18:09:00Z",
-    "department": 1,
-    "doctor": 16,
-    "message": ""
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 90,
-  "fields": {
-    "name": "wefwef",
-    "email": "zidan_2002@mail.ru",
-    "phone": "9898787808",
-    "date": "2025-06-07T18:17:00Z",
-    "department": 2,
-    "doctor": 17,
-    "message": ""
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 91,
-  "fields": {
-    "name": "fghdfgh",
-    "email": "fsdfasd@mail.ru",
-    "phone": "23423423434",
-    "date": "2025-05-22T18:19:00Z",
-    "department": 2,
-    "doctor": 13,
-    "message": ""
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 92,
-  "fields": {
-    "name": "23424",
-    "email": "zidan_2002@mail.ru",
-    "phone": "9898787808",
-    "date": "2025-05-22T18:22:00Z",
-    "department": 1,
-    "doctor": 16,
-    "message": ""
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 93,
-  "fields": {
-    "name": "2342",
-    "email": "zidan_2002@mail.ru",
-    "phone": "9898787808",
-    "date": "2025-05-22T18:22:00Z",
-    "department": 2,
-    "doctor": 18,
-    "message": ""
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 94,
-  "fields": {
-    "name": "sdf",
-    "email": "zidan_2002@mail.ru",
-    "phone": "9898787808",
-    "date": "2025-05-22T18:25:00Z",
-    "department": 1,
-    "doctor": 1,
-    "message": ""
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 95,
-  "fields": {
-    "name": "fghdfgh",
-    "email": "maksimova_nastya97@mail.ru",
-    "phone": "9898787808",
-    "date": "2025-05-29T18:27:00Z",
-    "department": 1,
-    "doctor": 18,
-    "message": ""
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 96,
-  "fields": {
-    "name": "women",
-    "email": "maksimova_nastya97@mail.ru",
-    "phone": "9898787808",
-    "date": "2025-05-24T18:51:00Z",
-    "department": 3,
-    "doctor": 13,
-    "message": ""
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 97,
-  "fields": {
-    "name": "women",
-    "email": "maksimova_nastya97@mail.ru",
-    "phone": "9898787808",
-    "date": "2025-05-24T18:51:00Z",
-    "department": 3,
-    "doctor": 13,
-    "message": ""
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 98,
-  "fields": {
-    "name": "sdf",
-    "email": "zidan_2002@mail.ru",
-    "phone": "9898787808",
-    "date": "2025-05-22T18:55:00Z",
-    "department": 2,
-    "doctor": 2,
-    "message": ""
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 99,
-  "fields": {
-    "name": "women",
-    "email": "zidan_2002@mail.ru",
-    "phone": "9898787808",
-    "date": "2025-05-23T18:56:00Z",
+    "date": "2025-05-26T12:00:00Z",
     "department": 1,
     "doctor": null,
-    "message": ""
+    "message": "Здравствуйте. У меня болит сердце — боль ощущается довольно остро и тревожит уже некоторое время. Прошу, если возможно, принять меня как можно скорее. Мне нужна помощь."
   }
 },
 {
   "model": "clinic.appointment",
-  "pk": 100,
+  "pk": 117,
   "fields": {
-    "name": "fghdfgh",
-    "email": "zidan_2002@mail.ru",
-    "phone": "9898787808",
-    "date": "2025-05-23T19:01:00Z",
-    "department": 1,
-    "doctor": null,
-    "message": ""
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 101,
-  "fields": {
-    "name": "sdf",
-    "email": "maksimova_nastya97@mail.ru",
-    "phone": "34563456356",
-    "date": "2025-05-22T19:02:00Z",
-    "department": 2,
-    "doctor": null,
-    "message": ""
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 102,
-  "fields": {
-    "name": "women",
-    "email": "fsdfasd@mail.ru",
-    "phone": "9898787808",
-    "date": "2025-05-23T19:16:00Z",
-    "department": 1,
-    "doctor": null,
-    "message": ""
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 103,
-  "fields": {
-    "name": "women",
-    "email": "fsdfasd@mail.ru",
-    "phone": "9898787808",
-    "date": "2025-05-23T19:16:00Z",
-    "department": 1,
-    "doctor": null,
-    "message": ""
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 104,
-  "fields": {
-    "name": "sdf",
-    "email": "zidan_2002@mail.ru",
-    "phone": "9898787808",
-    "date": "2025-05-31T22:22:00Z",
-    "department": 1,
-    "doctor": null,
-    "message": ""
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 105,
-  "fields": {
-    "name": "упцаыап",
-    "email": "zubayr_@live.com",
-    "phone": "6456456456456",
-    "date": "2025-05-31T13:01:00Z",
-    "department": 3,
-    "doctor": null,
-    "message": ""
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 106,
-  "fields": {
-    "name": "упцаыап",
-    "email": "zubayr_@live.com",
-    "phone": "6456456456456",
-    "date": "2025-05-31T13:01:00Z",
-    "department": 3,
-    "doctor": null,
-    "message": ""
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 107,
-  "fields": {
-    "name": "упцаыап",
-    "email": "zubayr_@live.com",
-    "phone": "6456456456456",
-    "date": "2025-05-31T13:01:00Z",
-    "department": 3,
-    "doctor": null,
-    "message": ""
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 108,
-  "fields": {
-    "name": "куенукен",
+    "name": "523452345",
     "email": "zidan0556@gmail.com",
-    "phone": "45645645645646",
-    "date": "2025-05-23T13:03:00Z",
+    "phone": "345234523452345",
+    "date": "2025-05-27T10:02:00Z",
     "department": 5,
     "doctor": null,
-    "message": ""
+    "message": "2345234523452354"
   }
 },
 {
   "model": "clinic.appointment",
-  "pk": 109,
+  "pk": 118,
   "fields": {
-    "name": "212312131",
-    "email": "abakarov.dev@mail.ru",
-    "phone": "000000000000000000",
-    "date": "2025-05-23T13:04:00Z",
-    "department": 3,
+    "name": "523452345",
+    "email": "zidan0556@gmail.com",
+    "phone": "345234523452345",
+    "date": "2025-05-27T10:02:00Z",
+    "department": 5,
     "doctor": null,
-    "message": ""
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 110,
-  "fields": {
-    "name": "212312131",
-    "email": "abakarov.dev@mail.ru",
-    "phone": "000000000000000000",
-    "date": "2025-05-23T13:04:00Z",
-    "department": 3,
-    "doctor": null,
-    "message": ""
+    "message": "2345234523452354"
   }
 },
 {
   "model": "clinic.departments",
   "pk": 1,
   "fields": {
-    "name": "Кардиология",
+    "name": "Кардиолог",
     "bio": "Слушая заботливо, мы заботимся о вашем сердце",
     "photo": "departments/departments-1.jpg",
     "description": "Мы предлагаем широкий спектр услуг в области кардиологии, включая диагностику и лечение заболеваний сердца и сосудов. Наши специалисты используют самые современные технологии для обеспечения вашего здоровья и благополучия."
@@ -2051,7 +660,7 @@
   "model": "clinic.departments",
   "pk": 2,
   "fields": {
-    "name": "Неврология",
+    "name": "Невролог",
     "bio": "Забота о вашем мозге и нервной системе",
     "photo": "departments/departments-2.jpg",
     "description": "Неврология - это область медицины, которая занимается диагностикой и лечением заболеваний центральной и периферической нервной системы. Наши врачи помогут вам при различных неврологических расстройствах, таких как головные боли, бессонница,  нарушения памяти и многое другое."
@@ -2059,32 +668,152 @@
 },
 {
   "model": "clinic.departments",
-  "pk": 3,
-  "fields": {
-    "name": "Гепатология",
-    "bio": "Забота о здоровье вашей печени",
-    "photo": "departments/departments-3.jpg",
-    "description": "Гепатология занимается диагностикой, лечением и профилактикой заболеваний печени. Мы предлагаем высококачественное лечение заболеваний, таких как гепатит, цирроз, жирная печень и другие. Наши специалисты помогут вам в восстановлении здоровья печени и повышении качества жизни."
-  }
-},
-{
-  "model": "clinic.departments",
-  "pk": 4,
-  "fields": {
-    "name": "Офтальмология",
-    "bio": "Забота о вашем зрении",
-    "photo": "departments/departments-4.jpg",
-    "description": "Офтальмология - это раздел медицины, который занимается диагностикой и лечением заболеваний глаз. Мы предлагаем широкий спектр услуг, включая коррекцию зрения,  лечение катаракты, глаукомы и других заболеваний глаз. Наши специалисты помогут вам сохранить и улучшить зрение."
-  }
-},
-{
-  "model": "clinic.departments",
   "pk": 5,
   "fields": {
-    "name": "Педиатрия",
+    "name": "Педиатр",
     "bio": "Забота о здоровье ваших детей",
     "photo": "departments/departments-5.jpg",
     "description": "Наши педиатры занимаются лечением и профилактикой заболеваний у детей всех возрастов. Мы обеспечиваем комплексную медицинскую помощь, начиная с новорожденных и до подростков. Здоровье вашего ребенка - наша главная приоритет."
+  }
+},
+{
+  "model": "clinic.departments",
+  "pk": 6,
+  "fields": {
+    "name": "Гастроэнтеролог",
+    "bio": "Забота о здоровье вашего пищеварения",
+    "photo": "departments/departments-1.jpg",
+    "description": "Мы диагностируем и лечим заболевания желудка, кишечника, печени и других органов пищеварительной системы. Наши специалисты помогут восстановить комфорт и нормальное функционирование организма с использованием современных методов терапии и индивидуального подхода."
+  }
+},
+{
+  "model": "clinic.departments",
+  "pk": 7,
+  "fields": {
+    "name": "Иглотерапевт",
+    "bio": "Гармония тела и духа через силу традиционной медицины.",
+    "photo": "departments/departments-1.jpg",
+    "description": "Мы предлагаем эффективное лечение с помощью акупунктуры — проверенного метода восточной медицины, направленного на восстановление энергетического баланса организма, снятие боли, уменьшение стресса и улучшение общего самочувствия."
+  }
+},
+{
+  "model": "clinic.departments",
+  "pk": 8,
+  "fields": {
+    "name": "Фтизиатр",
+    "bio": "Профилактика и лечение туберкулёза.",
+    "photo": "departments/departments-1.jpg",
+    "description": "Наши специалисты занимаются ранней диагностикой, лечением и контролем туберкулёза лёгких и других органов. Мы применяем современные подходы и методики для эффективной борьбы с заболеванием и восстановления здоровья пациентов."
+  }
+},
+{
+  "model": "clinic.departments",
+  "pk": 9,
+  "fields": {
+    "name": "Гинеколог",
+    "bio": "Забота о женском здоровье",
+    "photo": "departments/Без_имени.png",
+    "description": "Мы предлагаем комплексную диагностику, лечение и профилактику гинекологических заболеваний. Наши врачи обеспечивают деликатный и профессиональный подход на всех этапах — от плановых осмотров до специализированной помощи."
+  }
+},
+{
+  "model": "clinic.departments",
+  "pk": 10,
+  "fields": {
+    "name": "Проктолог",
+    "bio": "Деликатный подход к вашему здоровью",
+    "photo": "departments/departments-1.jpg",
+    "description": "Мы занимаемся диагностикой и лечением заболеваний прямой и толстой кишки, анального канала. Наши специалисты обеспечивают профессиональную помощь в комфортной и конфиденциальной обстановке."
+  }
+},
+{
+  "model": "clinic.departments",
+  "pk": 11,
+  "fields": {
+    "name": "Массажист",
+    "bio": "Профессиональный подход к восстановлению и расслаблению",
+    "photo": "departments/departments-1.jpg",
+    "description": "Мы предлагаем лечебный, профилактический и расслабляющий массаж для улучшения самочувствия, снятия напряжения и ускорения восстановления после травм и нагрузок."
+  }
+},
+{
+  "model": "clinic.departments",
+  "pk": 12,
+  "fields": {
+    "name": "Детский хирург",
+    "bio": "Забота о здоровье вашего ребёнка с первых лет жизни",
+    "photo": "departments/departments-1.jpg",
+    "description": "Мы проводим диагностику и хирургическое лечение врождённых и приобретённых заболеваний у детей, используя щадящие и эффективные методы, адаптированные под возраст и особенности каждого ребёнка."
+  }
+},
+{
+  "model": "clinic.departments",
+  "pk": 13,
+  "fields": {
+    "name": "Анестезиолог",
+    "bio": "Обеспечиваем безопасное и безболезненное проведение медицинских процедур и операций",
+    "photo": "departments/departments-1.jpg",
+    "description": "Наши специалисты тщательно контролируют состояние пациента во время анестезии, чтобы вы чувствовали себя комфортно и защищенно на каждом этапе лечения."
+  }
+},
+{
+  "model": "clinic.departments",
+  "pk": 14,
+  "fields": {
+    "name": "Уролог",
+    "bio": "Забота о здоровье мочеполовой системы",
+    "photo": "departments/departments-1.jpg",
+    "description": "Мы оказываем полный комплекс услуг по диагностике и лечению заболеваний мочеполовой системы.  Наши специалисты используют современные методы и технологии для эффективного восстановления вашего здоровья и предотвращения осложнений."
+  }
+},
+{
+  "model": "clinic.departments",
+  "pk": 15,
+  "fields": {
+    "name": "Эндокринолог",
+    "bio": "Ваш надежный помощник в поддержании гормонального здоровья",
+    "photo": "departments/departments-1.jpg",
+    "description": "Мы помогаем справиться с проблемами щитовидной железы, сахарным диабетом, нарушениями обмена веществ и другими эндокринными нарушениями, используя современные методы для поддержания вашего здоровья и баланса организма."
+  }
+},
+{
+  "model": "clinic.departments",
+  "pk": 16,
+  "fields": {
+    "name": "Травматолог",
+    "bio": "Забота о вашем опорно-двигательном аппарате",
+    "photo": "departments/departments-1.jpg",
+    "description": " Мы оказываем профессиональную помощь при травмах костей, суставов и мягких тканей. Наши специалисты проводят диагностику, лечение и восстановление после ушибов, переломов и других повреждений, чтобы вернуть вам активность и комфорт."
+  }
+},
+{
+  "model": "clinic.departments",
+  "pk": 17,
+  "fields": {
+    "name": "Дерматовенеролог",
+    "bio": "Забота о вашей коже",
+    "photo": "departments/departments-1.jpg",
+    "description": "Мы предоставляем полный спектр услуг по диагностике и лечению заболеваний кожи и венерических болезней. Наши опытные специалисты применяют современные методы для сохранения здоровья вашей кожи и улучшения качества жизни."
+  }
+},
+{
+  "model": "clinic.departments",
+  "pk": 18,
+  "fields": {
+    "name": "Нейрохирург",
+    "bio": "Высокоточная помощь при заболеваниях нервной системы.",
+    "photo": "departments/departments-1.jpg",
+    "description": "Мы специализируемся на диагностике и хирургическом лечении заболеваний головного и спинного мозга, периферических нервов и позвоночника. "
+  }
+},
+{
+  "model": "clinic.departments",
+  "pk": 19,
+  "fields": {
+    "name": "Терапевт",
+    "bio": "Ваш первый шаг к здоровью",
+    "photo": "departments/departments-1.jpg",
+    "description": "Мы проводим комплексную диагностику, профилактику и лечение широкого спектра заболеваний внутренних органов. Наши терапевты помогают выявить проблему на ранней стадии и направляют к узким специалистам при необходимости, обеспечивая внимательный и профессиональный подход к вашему самочувствию."
   }
 },
 {
@@ -2138,146 +867,59 @@
   }
 },
 {
-  "model": "clinic.testimonial",
+  "model": "clinic.gallery",
   "pk": 1,
   "fields": {
-    "name": "Сапарбегов Зидан",
-    "stars": 5,
-    "text": "Спасибо",
-    "doctor": 1,
-    "department": 1,
-    "image": "",
-    "date": "2025-05-22T06:34:17.556Z"
+    "photo": "gallery/gallery-1.jpg"
   }
 },
 {
-  "model": "clinic.testimonial",
+  "model": "clinic.gallery",
   "pk": 2,
   "fields": {
-    "name": "4",
-    "stars": 4,
-    "text": "4",
-    "doctor": 4,
-    "department": 4,
-    "image": "",
-    "date": "2025-05-22T06:34:17.556Z"
+    "photo": "gallery/gallery-2.jpg"
   }
 },
 {
-  "model": "clinic.testimonial",
+  "model": "clinic.gallery",
   "pk": 3,
   "fields": {
-    "name": "12",
-    "stars": 4,
-    "text": "4",
-    "doctor": 2,
-    "department": 3,
-    "image": "",
-    "date": "2025-05-22T06:34:17.556Z"
+    "photo": "gallery/gallery-3.jpg"
   }
 },
 {
-  "model": "clinic.testimonial",
+  "model": "clinic.gallery",
   "pk": 4,
   "fields": {
-    "name": "sdfffffffffffffffffffffffff",
-    "stars": 5,
-    "text": "sdfsfsdfsdfsdfsd",
-    "doctor": 2,
-    "department": 3,
-    "image": "testimonials/Снимок_экрана_от_2025-02-09_21-35-32.png",
-    "date": "2025-05-22T06:34:17.556Z"
+    "photo": "gallery/gallery-4.jpg"
   }
 },
 {
-  "model": "clinic.testimonial",
+  "model": "clinic.gallery",
   "pk": 5,
   "fields": {
-    "name": "111111111111111",
-    "stars": 5,
-    "text": "111111111",
-    "doctor": 20,
-    "department": 1,
-    "image": "",
-    "date": "2025-05-22T06:34:17.556Z"
+    "photo": "gallery/gallery-5.jpg"
   }
 },
 {
-  "model": "clinic.testimonial",
+  "model": "clinic.gallery",
   "pk": 6,
   "fields": {
-    "name": "111111111111111",
-    "stars": 7,
-    "text": "111111111",
-    "doctor": 20,
-    "department": 1,
-    "image": "",
-    "date": "2025-05-22T06:34:17.556Z"
+    "photo": "gallery/gallery-6.jpg"
   }
 },
 {
-  "model": "clinic.testimonial",
+  "model": "clinic.gallery",
   "pk": 7,
   "fields": {
-    "name": "111111111111111",
-    "stars": 1,
-    "text": "111111111",
-    "doctor": 20,
-    "department": 1,
-    "image": "",
-    "date": "2025-05-22T06:34:17.556Z"
+    "photo": "gallery/gallery-7.jpg"
   }
 },
 {
-  "model": "clinic.testimonial",
+  "model": "clinic.gallery",
   "pk": 8,
   "fields": {
-    "name": "11111111111111122222222222222",
-    "stars": 2,
-    "text": "111111111",
-    "doctor": 20,
-    "department": 1,
-    "image": "",
-    "date": "2025-05-22T06:34:17.556Z"
-  }
-},
-{
-  "model": "clinic.testimonial",
-  "pk": 9,
-  "fields": {
-    "name": "zzz",
-    "stars": 2,
-    "text": "zz",
-    "doctor": 1,
-    "department": 1,
-    "image": "",
-    "date": "2025-05-22T06:34:17.556Z"
-  }
-},
-{
-  "model": "clinic.testimonial",
-  "pk": 10,
-  "fields": {
-    "name": "енгкенгкенгкенгкенгкенг",
-    "stars": 6,
-    "text": "6рапрпаапроап",
-    "doctor": 1,
-    "department": 5,
-    "image": "",
-    "date": "2025-05-22T12:06:19.106Z"
-  }
-},
-{
-  "model": "clinic.testimonial",
-  "pk": 11,
-  "fields": {
-    "name": "666666666666",
-    "stars": 5,
-    "text": "66666666666666666666666666666666666",
-    "doctor": 1,
-    "department": 4,
-    "image": "",
-    "date": "2025-05-22T12:22:43.765Z"
+    "photo": "gallery/gallery-8.jpg"
   }
 }
 ]
