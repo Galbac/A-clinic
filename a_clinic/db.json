@@ -608,45 +608,6 @@
   }
 },
 {
-  "model": "clinic.appointment",
-  "pk": 116,
-  "fields": {
-    "name": "Сапарбегов Зидан Зиявудинович",
-    "email": "zidan_2002@mail.ru",
-    "phone": "89898787808",
-    "date": "2025-05-26T12:00:00Z",
-    "department": 1,
-    "doctor": null,
-    "message": "Здравствуйте. У меня болит сердце — боль ощущается довольно остро и тревожит уже некоторое время. Прошу, если возможно, принять меня как можно скорее. Мне нужна помощь."
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 117,
-  "fields": {
-    "name": "523452345",
-    "email": "zidan0556@gmail.com",
-    "phone": "345234523452345",
-    "date": "2025-05-27T10:02:00Z",
-    "department": 5,
-    "doctor": null,
-    "message": "2345234523452354"
-  }
-},
-{
-  "model": "clinic.appointment",
-  "pk": 118,
-  "fields": {
-    "name": "523452345",
-    "email": "zidan0556@gmail.com",
-    "phone": "345234523452345",
-    "date": "2025-05-27T10:02:00Z",
-    "department": 5,
-    "doctor": null,
-    "message": "2345234523452354"
-  }
-},
-{
   "model": "clinic.departments",
   "pk": 1,
   "fields": {

@@ -165,3 +165,7 @@ class Testimonial(models.Model):
 
 class Gallery(models.Model):
     photo = models.ImageField(upload_to='gallery/', null=True, blank=True)
+
+    class Meta:
+        verbose_name = 'Галерея'
+        verbose_name_plural = 'Фото'
