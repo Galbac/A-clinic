@@ -1,0 +1,73 @@
+services:
+
+
+  adminer:
+    image: adminer
+    container_name: adminer
+    ports:
+      - '8080:8080'
+    links:
+      - 'postgres:db'
+    networks:
+      - dbnet
+    depends_on:
+      - postgres
+
+
+  postgres:
+    image: postgres:17.5
+    container_name: psgr
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - dbnet
+
+  aclinic:
+    build: .
+    image: aclinic
+    container_name: aclinic
+    restart: always
+    command: "gunicorn -c gunicorn.py a_clinic.wsgi"
+    volumes:
+      - .:/app/www/aclinic
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    depends_on:
+      - postgres
+    links:
+      - 'postgres:dbps'
+    networks:
+      - dbnet
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx-server
+    restart: always
+    expose:
+      - 8088
+    ports:
+      - "80:8088"
+    volumes:
+      - ./clinic/static:/app/www/aclinic/static
+      - ./media:/app/www/aclinic/media
+      - ./nginx:/etc/nginx/conf.d
+    depends_on:
+      - aclinic
+    networks:
+      - dbnet
+
+volumes:
+  postgres-data:
+
+networks:
+  dbnet:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.30.0.0/16

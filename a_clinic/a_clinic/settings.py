@@ -12,6 +12,10 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 import os
 from pathlib import Path
 
+from decouple import config
+from dotenv import load_dotenv
+
+load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -19,12 +23,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-y=qv+(^6p&!$-^ah!wpy&u92x-6jh(gjusz@t*(bxu)1dzwxpx'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = config('ALLOWED_HOSTS').split(' ')
 
 # Application definition
 
@@ -78,24 +82,14 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'a_clinic.wsgi.application'
 
-# Database
-# https://docs.djangoproject.com/en/5.2/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'aclinic_db',
-        'USER': 'aclinic',
-        'PASSWORD': 'aclinic123',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+        'PORT': config('DB_PORT', 5432),
     }
 }
 
@@ -132,14 +126,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
-
+STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = BASE_DIR / 'media'
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
@@ -149,10 +143,14 @@ REST_FRAMEWORK = {
 
 DATA_UPLOAD_MAX_MEMORY_SIZE = 104857600
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-RECAPTCHA_PUBLIC_KEY = '6LcN20ErAAAAAK0VBW8llGK8EG4y4Zeifc0OT-mY'
-RECAPTCHA_PRIVATE_KEY = '6LcN20ErAAAAAKxXO59TXK0nFlYvsxPSMmWXHe-Y'
+RECAPTCHA_PUBLIC_KEY = config('RECAPTCHA_PUBLIC_KEY')
+RECAPTCHA_PRIVATE_KEY = config('RECAPTCHA_PRIVATE_KEY')
 
 # Рекомендуется для тестирования
 NOCAPTCHA = True  # для виджета checkbox reCAPTCHA v2
 
 RECAPTCHA_DOMAIN = 'www.recaptcha.net'
+
+# STATICFILES_DIRS = [
+#     BASE_DIR / "static",  # Это папка, где ты хранишь исходники
+# ]
